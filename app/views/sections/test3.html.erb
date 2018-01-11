@@ -1,0 +1,50 @@
+<h1>Sections#test3</h1>
+<div id="mapid"></div>
+<script>
+    
+  var zoom = zoomLevel();
+  function zoomLevel() {
+      return Math.ceil(
+              Math.log(
+                      Math.max(130000, 130000) /
+                      256
+                      ) / Math.log(2)
+              );
+  };
+
+  var mycrs = L.extend({}, L.CRS.Simple, {
+          transformation: new L.Transformation(1, 200, -1, 100),
+          infinite: false
+        });
+
+  function project(coords) {
+      return map.project(coords, zoom);
+  };
+  function unproject(coords) {
+      return map.unproject(coords, zoom);
+  };
+  
+  var map = L.map('mapid', {
+      minZoom: 0,
+      maxZoom: 10,
+      crs: L.CRS.Simple
+    }).setView([100,500], 0);
+    
+  var tmslayer = L.tileLayer('http://localhost:8080/geoserver/gwc/service/tms/1.0.0/topp%3Agfxvector@Simple@png/{z}/{x}/{y}.png?origin=nw',
+            {   
+              continuousWorld: true,
+               noWrap: false,
+               tms: false,
+               //format: 'image/png',
+               //transparent: true
+            });
+
+  map.addLayer(tmslayer);
+
+  function onMapClick(e) {
+      alert("You clicked the map at " + e.latlng + " " + e.latlng);
+  }
+
+  map.on('click', onMapClick);
+
+</script>

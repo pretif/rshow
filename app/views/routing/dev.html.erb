@@ -1,0 +1,315 @@
+<%= semantic_form_for @obj do |f| %>
+  <%= f.input :date, as: :datetimepicker, datepicker_options: { min_date: "2017-12-01" } %>
+<% end %>
+
+<div id="mapid"></div>
+<script>
+  jQuery.datetimepicker.setLocale('fr');
+
+  var vp_currentdatetime = 'date:20180614;low_h:1000;high_h:5000';
+
+  L.Icon.Default.imagePath = '/assets/';
+  L.Icon.Default.mergeOptions({
+      iconRetinaUrl: 'images/marker-icon-2x.png',
+      iconUrl: 'images/marker-icon.png',
+      shadowUrl: 'images/marker-shadow.png',
+  });
+  var crs = new L.Proj.CRS("EPSG:2192",
+          "+proj=lcc +lat_1=46.8 +lat_0=46.8 +lon_0=2.337229166666667 +k_0=0.99987742 +x_0=600000 +y_0=2200000 +ellps=intl +towgs84=-87,-98,-121,0,0,0,0 +units=m +no_defs",
+          {
+              //origin: [1712,-2291],
+              resolutions: [2048, 1024, 512, 256, 128, 64, 32, 8, 4, 2, 1, 0.5, 0.25] //  example zoom level resolutions
+          });
+
+  var wmsLayer = L.tileLayer.wms("http://localhost:8080/geoserver/Kbase42222/wms", {
+      layers: 'Kbase42222:infra281',
+      crs: crs,
+      format: 'image/png',
+      transparent: true
+  });
+
+  var backgroundMap = {
+      "Fond": wmsLayer
+  };
+
+  /*
+   '1','14','Temporary Speed Restriction'
+   '26','12476','Imported Route Opening Hours'
+   '27','4640','Imported Station Opening Hours'
+   '34','8601','Correcting'
+   '35','55319','Deformation'
+   '36','36845','Generic'
+   '37','13894','Surveillance'
+   '38','35243','Capacity Request'
+   */
+
+  var layerpossession = L.tileLayer.wms("http://localhost:8080/geoserver/Kbase42222/wms", {
+      layers: 'Kbase42222:restriction_mv_view',
+      viewparams: 'date:20180614;low_h:1000;high_h:5000',
+      crs: crs,
+      format: 'image/png',
+      transparent: true
+  }),
+          l_p1 = L.tileLayer.wms("http://localhost:8080/geoserver/Kbase42222/wms", {
+              layers: 'Kbase42222:restriction_mv_type_view',
+              viewparams: 'date:20180614;low_h:1000;high_h:5000;typeid:1',
+              crs: crs,
+              format: 'image/png',
+              transparent: true
+          }),
+          l_p26 = L.tileLayer.wms("http://localhost:8080/geoserver/Kbase42222/wms", {
+              layers: 'Kbase42222:restriction_mv_type_view',
+              viewparams: 'date:20180614;low_h:1000;high_h:5000;typeid:26',
+              crs: crs,
+              format: 'image/png',
+              transparent: true
+          }),
+          l_p27 = L.tileLayer.wms("http://localhost:8080/geoserver/Kbase42222/wms", {
+              layers: 'Kbase42222:restriction_mv_type_view',
+              viewparams: 'date:20180614;low_h:1000;high_h:5000;typeid:27',
+              crs: crs,
+              format: 'image/png',
+              transparent: true
+          }),
+          l_p34 = L.tileLayer.wms("http://localhost:8080/geoserver/Kbase42222/wms", {
+              layers: 'Kbase42222:restriction_mv_type_view',
+              viewparams: 'date:20180614;low_h:1000;high_h:5000;typeid:34',
+              crs: crs,
+              format: 'image/png',
+              transparent: true
+          }),
+          l_p35 = L.tileLayer.wms("http://localhost:8080/geoserver/Kbase42222/wms", {
+              layers: 'Kbase42222:restriction_mv_type_view',
+              viewparams: 'date:20180614;low_h:1000;high_h:5000;typeid:35',
+              crs: crs,
+              format: 'image/png',
+              transparent: true
+          }),
+          l_p36 = L.tileLayer.wms("http://localhost:8080/geoserver/Kbase42222/wms", {
+              layers: 'Kbase42222:restriction_mv_type_view',
+              viewparams: 'date:20180614;low_h:1000;high_h:5000;typeid:36',
+              crs: crs,
+              format: 'image/png',
+              transparent: true
+          }),
+          l_p37 = L.tileLayer.wms("http://localhost:8080/geoserver/Kbase42222/wms", {
+              layers: 'Kbase42222:restriction_mv_type_view',
+              viewparams: 'date:20180614;low_h:1000;high_h:5000;typeid:37',
+              crs: crs,
+              format: 'image/png',
+              transparent: true
+          }),
+          l_p38 = L.tileLayer.wms("http://localhost:8080/geoserver/Kbase42222/wms", {
+              layers: 'Kbase42222:restriction_mv_type_view',
+              viewparams: 'date:20180614;low_h:1000;high_h:5000;typeid:38',
+              crs: crs,
+              format: 'image/png',
+              transparent: true
+          });
+
+  var pmaps = {
+      Travaux: layerpossession,
+      Temporary_Speed_Restriction: l_p1,
+      Imported_Route_Opening_Hours: l_p26,
+      Imported_Station_Opening_Hours: l_p27,
+      Correcting: l_p34,
+      Deformation: l_p35,
+      Generic: l_p36,
+      Surveillance: l_p37,
+      Capacity_Request: l_p38
+  };
+
+// , l_p1, l_p26, l_p27, l_p34, l_p35, l_p36, l_p37, l_p38
+
+  var map = L.map('mapid', {
+      crs: crs,
+      maxBounds: new L.LatLngBounds([[27.20, -3.57], [26.25, -2.25]]),
+      minZoom: 3,
+      maxZoom: 13,
+      layers: [wmsLayer, layerpossession]
+  });
+
+  map.setView(L.latLng(26.70625, -2.87625), 3, crs);
+
+  L.control.layers(backgroundMap, pmaps).addTo(map);
+
+  // viewparams=p1:v1;p2:v2;...
+
+  function dateChanged(dp, $input)
+  {
+      var vect1 = $input.val().split(' ');
+      var vect2 = vect1[0].split('-');
+      var vect3 = vect1[1].split(':');
+      // 'date:20180614;low_h:1000;high_h:5000'
+      var txt = 'date:' + vect2[0] + vect2[1] + vect2[2] + ';low_h:' + (parseInt(vect3[0]) * 3600 + parseInt(vect3[1]) * 60) + ';high_h:' + (parseInt(vect3[0]) * 3600 + parseInt(vect3[1]) * 60 + 1);
+      vp_currentdatetime = txt;
+      console.log("dateStartChange: " + $input.val() + ' ' + txt);
+      layerpossession.wmsParams.viewparams = txt;
+      layerpossession.redraw();
+      l_p1.wmsParams.viewparams = txt + ';typeid:1';
+      l_p1.redraw();
+      l_p26.wmsParams.viewparams = txt + ';typeid:26';
+      l_p26.redraw();
+      l_p27.wmsParams.viewparams = txt + ';typeid:27';
+      l_p27.redraw();
+      l_p34.wmsParams.viewparams = txt + ';typeid:34';
+      l_p34.redraw();
+      l_p35.wmsParams.viewparams = txt + ';typeid:35';
+      l_p35.redraw();
+      l_p36.wmsParams.viewparams = txt + ';typeid:36';
+      l_p36.redraw();
+      l_p37.wmsParams.viewparams = txt + ';typeid:37';
+      l_p37.redraw();
+      l_p38.wmsParams.viewparams = txt + ';typeid:38';
+      l_p38.redraw();
+      $input.val();
+  }
+  ;
+
+  jQuery('#test_object_date').datetimepicker({
+      onChangeDateTime: dateChanged
+  });
+
+
+  var rootUrl = 'http://localhost:8080/geoserver/ows';
+
+  function _decodePolyline(geom) {
+      var result, i, npt,
+              coords = geom.coordinates;
+      result = new Array(coords.length);
+      for (i = 0; i < coords.length; i++) {
+          npt = L.point(coords[i][0], coords[i][1]);
+          ltlg = crs.unproject(npt);
+          result[i] = [ltlg.lat, ltlg.lng];
+      }
+      return result;
+  }
+  ;
+
+  function getJson(data) {
+      for (i = 0; i < data.features.length; i++) {
+          data.features[i].geometry.coordinates = _decodePolyline(data.features[i].geometry);
+      }
+      console.log("callback function fired");
+  }
+
+  function handleJson(data) {
+      selectedFeature = L.geoJson(data, {
+          style: function (feature) {
+              return {color: 'yellow'};
+          },
+          onEachFeature: function (feature, layer) {
+              var content = "";
+              content += "refid: " + feature.properties.refid + "<br />";
+              content += "name: " + feature.properties.name + "<br />";
+              content += "responsibilitydesc: " + feature.properties.responsibilitydesc + "<br />";
+              content += "type: " + feature.properties.type + "<br />";
+              content += "state: " + feature.properties.state + "<br />";
+              content += "begindate: " + feature.properties.begindate + "<br />";
+              content += "enddate: " + feature.properties.enddate + "<br />";
+              var quotient = Math.floor(feature.properties.begintime / 3600);
+              var remainder = feature.properties.begintime % 3600;
+              content += "begintime: " + quotient + "h" + Math.floor(remainder / 60) + "mn <br />";
+              quotient = Math.floor(feature.properties.endtime / 3600);
+              remainder = feature.properties.endtime % 3600;
+              content += "endtime: " + quotient + "h" + Math.floor(remainder / 60) + "mn <br />";
+              content += "text: " + feature.properties.text + "<br />";
+              var popup = L.popup()
+                      .setLatLng(queryCoordinates)
+                      .setContent(content)
+                      .openOn(map);
+              layer.bindPopup(content);
+              layer.on({
+                  mouseover: highlightFeature,
+                  mouseout: resetHighlight
+              });
+          },
+          pointToLayer: function (feature, latlng) {
+              return L.circleMarker(latlng, {
+                  radius: 5,
+                  fillColor: "yellow",
+                  color: "#000",
+                  weight: 5,
+                  opacity: 0.6,
+                  fillOpacity: 0.2
+              });
+          }
+      });
+      selectedFeature.addTo(map);
+  }
+
+//Query layer functionality.
+  var selectedFeature;
+  var queryCoordinates;
+
+  map.on('click', function (e) {
+      if (selectedFeature) {
+          map.removeLayer(selectedFeature);
+      }
+      ;
+
+      var p = crs.project(e.latlng);
+      queryCoordinates = e.latlng;
+
+      var customParams = {
+          bbox: (p.x - 20).toString() + ', ' + (p.y - 20).toString() + ', ' + (p.x + 20).toString() + ', ' + (p.y + 20).toString()
+                  //cql_filter:'DWithin(the_geom, POINT(' + Math.floor(p.x) + ' ' + Math.floor(p.y) + '), 10, meters) '
+      };
+
+      var defaultParameters = {
+          service: 'WFS',
+          version: '1.1.0',
+          request: 'GetFeature',
+          typeName: 'Kbase42222:restriction_mv_view',
+          maxFeatures: 10,
+          outputFormat: 'text/javascript',
+          format_options: 'callback:getJson',
+          viewparams: vp_currentdatetime,
+          srsName: 'EPSG:2192',
+          srs: 'EPSG:2192'
+      };
+
+      var parameters = L.Util.extend(defaultParameters, customParams);
+
+      var url = rootUrl + L.Util.getParamString(parameters)
+      console.log(url);
+
+      $.ajax({
+          url: rootUrl + L.Util.getParamString(parameters),
+          dataType: 'jsonp',
+          jsonpCallback: 'getJson',
+          success: handleJson
+      });
+  });
+
+  function highlightFeature(e) {
+      var layer = e.target;
+      layer.setStyle({
+          fillColor: "yellow",
+          color: "yellow",
+          weight: 5,
+          opacity: 1
+      });
+
+      if (!L.Browser.ie && !L.Browser.opera) {
+          layer.bringToFront();
+      }
+  }
+
+  function resetHighlight(e) {
+      var layer = e.target;
+      layer.setStyle({
+          radius: 5,
+          fillColor: "yellow",
+          color: "yellow",
+          weight: 5,
+          opacity: 0.6,
+          fillOpacity: 0.2
+      });
+  }
+
+  /*
+   
+   */
+
+</script>

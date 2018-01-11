@@ -1,0 +1,275 @@
+<div id="mapid"></div>
+<script>
+L.Icon.Default.imagePath = '/assets/';
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: 'images/marker-icon-2x.png',
+    iconUrl: 'images/marker-icon.png',
+    shadowUrl: 'images/marker-shadow.png',
+});
+var crs = new L.Proj.CRS("EPSG:2192",
+        "+proj=lcc +lat_1=46.8 +lat_0=46.8 +lon_0=2.337229166666667 +k_0=0.99987742 +x_0=600000 +y_0=2200000 +ellps=intl +towgs84=-87,-98,-121,0,0,0,0 +units=m +no_defs",
+        {
+            //origin: [1712,-2291],
+            resolutions: [16384, 8192, 4096, 2048, 1024, 512, 256, 128, 64, 32, 8, 4, 2, 1, 0.5, 0.25, 0.125] //  example zoom level resolutions
+        });
+var map = L.map('mapid', {crs: crs}).setView(L.latLng(26.70625, -2.87625), 6, crs);
+var waypoints = [
+    L.latLng(26.70625, -2.87625),
+    L.latLng(26.80625, -2.89625)
+];
+var wmsLayer = L.tileLayer.wms("http://localhost:8080/geoserver/Kbase42222/wms", {
+    layers: 'Kbase42222:infra281',
+    crs: crs,
+    format: 'image/png',
+    transparent: true
+});
+map.addLayer(wmsLayer);
+L.Control.Geocoder.callbackId = 0;
+L.Control.Geocoder.jsonp = function (url, params, callback, context, jsonpParam) {
+    var callbackId = '_l_geocoder_' + (L.Control.Geocoder.callbackId++);
+    params[jsonpParam || 'callback'] = callbackId;
+    window[callbackId] = L.Util.bind(callback, context);
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url + L.Util.getParamString(params);
+    script.id = callbackId;
+    document.getElementsByTagName('head')[0].appendChild(script);
+};
+L.Control.Geocoder.getJSON = function (url, params, callback) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", url + L.Util.getParamString(params), true);
+    xmlHttp.send(null);
+    xmlHttp.onreadystatechange = function () {
+        if (xmlHttp.readyState != 4)
+            return;
+        if (xmlHttp.status != 200 && req.status != 304)
+            return;
+        callback(JSON.parse(xmlHttp.response));
+    };
+};
+// Adapted from handlebars.js   // https://github.com/wycats/handlebars.js/
+L.Control.Geocoder.htmlEscape = (function () {
+    var badChars = /[&<>"'`]/g;
+    var possible = /[&<>"'`]/;
+    var escape = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        '\'': '&#x27;',
+        '`': '&#x60;'
+    };
+    function escapeChar(chr) {
+        return escape[chr];
+    }
+
+    return function (string) {
+        if (string == null) {
+            return '';
+        } else if (!string) {
+            return string + '';
+        }
+
+        // Force a string conversion as this will be done by the append regardless and
+        // the regex test will do this transparently behind the scenes, causing issues if
+        // an object's to string has escaped characters in it.
+        string = '' + string;
+        if (!possible.test(string)) {
+            return string;
+        }
+        return string.replace(badChars, escapeChar);
+    };
+})();
+L.Control.Geocoder.template = function (str, data, htmlEscape) {
+    return str.replace(/\{ *([\w_]+) *\}/g, function (str, key) {
+        var value = data[key];
+        if (value === undefined) {
+            value = '';
+        } else if (typeof value === 'function') {
+            value = value(data);
+        }
+        return L.Control.Geocoder.htmlEscape(value);
+    });
+};
+L.Control.Geocoder.Nominatim.include({
+    geocode: function (query, cb, context) {
+        L.Control.Geocoder.jsonp(this.options.serviceUrl + 'search/', L.extend({
+            q: query,
+            limit: 10,
+            format: 'json',
+            addressdetails: 1
+        }, this.options.geocodingQueryParams),
+                function (data) {
+                    var results = [];
+                    for (var i = data.length - 1; i >= 0; i--) {
+                        var lat = data[i].lat, lon = data[i].lon,
+                                npt = L.point(lat, lon),
+                                center = crs.unproject(npt),
+                                bounds = center.toBounds(50);
+                        //    bbox = L.LatLngBounds(center,center);
+                        //for (var j = 0; j < 4; j++) bbox[j] = parseFloat(bbox[j]);
+                        results[i] = {
+                            icon: "http:\/\/nominatim.openstreetmap.org\/images\/mapicons\/poi_place_city.p.20.png",
+                            name: data[i].display_name,
+                            html: this.options.htmlTemplate ?
+                                    this.options.htmlTemplate(data[i])
+                                    : undefined,
+                            bbox: bounds,
+                            center: center,
+                            properties: "tst"
+                        };
+                    }
+                    cb.call(context, results);
+                }, this, 'json_callback');
+    },
+    reverse: function (location, scale, cb, context) {
+        var lpt = L.latLng(location.lat, location.lng),
+                pt = crs.project(lpt);
+        L.Control.Geocoder.jsonp(this.options.serviceUrl + 'reverse/', L.extend({
+            lat: pt.x,
+            lon: pt.y,
+            zoom: Math.round(Math.log(scale / 256) / Math.log(2)),
+            addressdetails: 1, format: 'json'
+        }, this.options.reverseQueryParams), function (data) {
+            var result = [],
+                    npt, center;
+            if (data && data.lat && data.lon) {
+                npt = L.point(data.lat, data.lon);
+                center = crs.unproject(npt);
+                context._waypoint.latLng.lat = center.lat;
+                context._waypoint.latLng.lng = center.lng;
+                context._waypoint.options = {properties: data}
+                //this.fire('waypointgeocoded');
+                result.push({
+                    name: data.display_name,
+                    html: this.options.htmlTemplate ?
+                            this.options.htmlTemplate(data)
+                            : undefined,
+                    center: center,
+                    bounds: center.toBounds(50),
+                    properties: data
+                });
+            }
+            cb.call(context, result);
+        }, this, 'json_callback');
+    }
+});
+L.Routing.OSRMv1.include({
+    buildRouteUrl: function (waypoints, options) {
+        var locs = [],
+                sths = [],
+                hints = [],
+                wp,
+                latLng, pt,
+                computeInstructions,
+                computeAlternative = true;
+        for (var i = 0; i < waypoints.length; i++) {
+            wp = waypoints[i];
+            latLng = wp.latLng;
+            pt = crs.project(latLng);
+            //locs.push(pt.x + ',' + pt.y);
+            if (wp.options.properties) {
+                sths.push(wp.options.properties.ci + '_' + wp.options.properties.ch);
+            }
+            ;
+            hints.push(this._hints.locations[this._locationKey(latLng)] || '');
+        }
+
+        computeInstructions =
+                !(options && options.geometryOnly);
+        return this.options.serviceUrl + '/' + this.options.profile + '/' +
+                sths.join('-') + '?' +
+                (options.geometryOnly ? (options.simplifyGeometry ? '' : 'overview=full') : 'overview=false') +
+                '&alternatives=' + computeAlternative.toString() +
+                '&steps=' + computeInstructions.toString() +
+                (this.options.useHints ? '&hints=' + hints.join(';') : '') +
+                (options.allowUTurns ? '&continue_straight=' + !options.allowUTurns : '');
+    }
+
+});
+var mygc = new L.Control.Geocoder.nominatim({
+    serviceUrl: 'http://localhost:3000/geocoder/',
+    htmlTemplate: function (r) {  // Marche pas
+        var parts = [];
+        if (r.ci || r.ch) {
+            parts.push('<span class="leaflet-control-geocoder-address-context">{ci}/{ch}</span>');
+        }
+        return L.Control.Geocoder.template(parts.join('<br/>'), r, true);
+    }
+});
+var control = L.Routing.control({
+    waypoints: waypoints,
+    //language: 'fr',
+    show: true,
+    router: L.Routing.osrmv1({
+        useHints: false,
+        serviceUrl: 'http://localhost:3000/routing',
+        profile: 'rails',
+        routeWhileDragging: true,
+        routeDragTimeout: 600,
+        showAlternatives: false,
+    }),
+    plan: L.Routing.plan(waypoints, {
+        createMarker: function (i, wp) {
+            return L.marker(wp.latLng, {
+                draggable: true,
+                icon: L.icon.glyph({glyph: String.fromCharCode(65 + i)})
+            });
+        },
+        geocoder: mygc,
+        routeWhileDragging: true
+    }),
+    reverseWaypoints: true,
+    maxGeocoderTolerance: 5000,
+    geocoder: mygc,
+})
+control.addTo(map);
+
+control.options.router._decodePolyline = function (routeGeometry) {
+    var cs, result, i, npt,
+            coords = routeGeometry.coordinates;
+    result = new Array(coords.length);
+    for (i = 0; i < coords.length; i++) {
+        npt = L.point(coords[i][0], coords[i][1]);
+        result[i] = crs.unproject(npt);
+    }
+    /*cs = polyline.decode(routeGeometry, this.options.polylinePrecision);
+     result = new Array(cs.length);
+     for (i = cs.length - 1; i >= 0; i--) {
+     result[i] = L.latLng(cs[i]);
+     }*/
+
+    return result;
+};
+
+control.options.router._toWaypoints = function (inputWaypoints, vias) {
+    var wps = [],
+            i,
+            viaLoc;
+    for (i = 0; i < vias.length; i++) {
+        viaLoc = vias[i].location;
+        npt = L.point(viaLoc[1], viaLoc[0]);
+        wps.push(new L.Routing.Waypoint(crs.unproject(npt),
+                inputWaypoints[i].name,
+                inputWaypoints[i].options));
+    }
+    return wps;
+};
+
+L.Routing.errorControl(control).addTo(map);
+/*
+ var plan = control.getPlan();
+ 
+ plan.addEventListener('waypointgeocoded', function(wp) {
+ alert("You reversegeocoded at ");
+ });
+ 
+ function onMapClick(e) {
+ var xy = crs.project(e.latlng),
+ alert("You clicked the map at " + e.latlng + "x: " + xy );
+ }
+ 
+ map.on('click', onMapClick);
+ */
+
+</script>

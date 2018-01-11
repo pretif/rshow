@@ -1,0 +1,24 @@
+<br/>
+<br/>
+<%= semantic_form_for @obj do |f| %>
+<%= f.input :date, :as => :string, :input_html => {:class => 'datepicker'}, datepicker_options: { min_date: "2017-10-8", max_date: "+3D" } %>
+<% end %>
+
+<%= semantic_form_for @obj do |f| %>
+<%= f.input :date, :as => :string, :input_html => {:class => 'datetimepicker'}, datepicker_options: { min_date: "2017-10-8", max_date: "+3D" } %>
+<% end %>
+
+
+<%= semantic_form_for @obj do |f| %>
+<%=   f.input :date, as: :datetimepicker, datepicker_options: { min_date: "2017-10-8", max_date: "+3D" } %>
+<% end %>
+
+<br/>
+<br/>
+
+<input id="datetimepicker" type="text" >
+<script>
+  $(document).ready(function() {
+    $('#datetimepicker').datetimepicker();
+  });
+</script>

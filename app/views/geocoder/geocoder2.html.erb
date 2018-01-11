@@ -1,0 +1,113 @@
+<h1>Sections#map</h1>
+<div id="mapid"></div>
+<script>
+  L.Icon.Default.imagePath = '/assets/';
+  L.Icon.Default.mergeOptions({
+      iconRetinaUrl: 'images/marker-icon-2x.png',
+      iconUrl: 'images/marker-icon.png',
+      shadowUrl: 'images/marker-shadow.png',
+  });
+  var proj42 = "+proj=lcc +lat_1=46.8 +lat_0=46.8 +lon_0=2.337229166666667 +k_0=0.99987742 +x_0=600000 +y_0=2200000 +ellps=intl +towgs84=-87,-98,-121,0,0,0,0 +units=m +no_defs",
+          crs = new L.Proj.CRS("EPSG:2192",
+                  "+proj=lcc +lat_1=46.8 +lat_0=46.8 +lon_0=2.337229166666667 +k_0=0.99987742 +x_0=600000 +y_0=2200000 +ellps=intl +towgs84=-87,-98,-121,0,0,0,0 +units=m +no_defs",
+                  {
+                      //origin: [1712,-2291],
+                      resolutions: [16384, 8192, 4096, 2048, 1024, 512, 256, 128, 64, 32, 8, 4, 2, 1, 0.5, 0.25, 0.125] //  example zoom level resolutions
+                  });
+
+  var map = L.map('mapid', {crs: crs}).setView(L.latLng(26.70625, -2.87625), 6, crs),
+          wmsLayer = L.tileLayer.wms("http://localhost:8080/geoserver/Kbase42222/wms", {
+              layers: 'Kbase42222:infra281',
+              crs: crs,
+              format: 'image/png',
+              transparent: true
+          });
+  map.addLayer(wmsLayer);
+
+  /*
+   function onMapClick(e) {
+   var xy = crs.project(e.latlng),
+   alert("You clicked the map at " + e.latlng + "x: " + xy );
+   }
+   
+   map.on('click', onMapClick);
+   */
+
+  var mygc = new L.Control.Geocoder.nominatim({
+      serviceUrl: 'http://localhost:3000/geocoder/',
+      htmlTemplate: function (r) {
+      }
+  });
+  
+
+  function getJSON(url, params, callback) {
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.onreadystatechange = function () {
+          if (xmlHttp.readyState !== 4) {
+              return;
+          }
+          if (xmlHttp.status !== 200 && xmlHttp.status !== 304) {
+              callback('');
+              return;
+          }
+          callback(JSON.parse(xmlHttp.response));
+      };
+      xmlHttp.open('GET', url + L.Util.getParamString(params), true);
+      xmlHttp.setRequestHeader('Accept', 'application/json');
+      xmlHttp.send(null);
+  }
+  ;
+
+/*
+  mygc.reverse = function (location, scale, cb, context) {
+      getJSON('http://localhost:3000/geocoder/reverse', {
+          coords: [location.lat, location.lng].join(',')
+      },
+      function (data) {
+          var r = data[0],
+                  npt = L.point(r.center.lat, r.center.lng),
+                  center = crs.unproject(npt);
+          var results = [], loc, latLng, latLngBounds;
+          if (data.status.status == 200) {
+              latLng = center;
+              latLngBounds = L.latLngBounds(center, center);
+              results[0] = {
+                  name: r.name,
+                  bbox: latLngBounds,
+                  center: latLng
+              };
+          }
+          cb.call(context, results);
+      }
+      );
+  }
+*/
+
+  var geocoder = new L.Control.Geocoder(
+          {
+           geocoder: mygc,
+           collapsed: false
+         }),
+          marker;
+  var geo = geocoder.addTo(map);
+
+map.on('click', function (e) {
+      var pt = crs.project(e.latlng),
+              lpt = L.latLng(pt.x, pt.y)
+      mygc.reverse(lpt, map.options.crs.scale(map.getZoom()), function (results) {
+          var r = results[0],
+                  npt = L.point(r.center.lat, r.center.lng),
+                  center = crs.unproject(npt);
+          if (r) {
+              if (marker) {
+                  marker.
+                          setLatLng(center).
+                          setPopupContent(r.html || r.name).
+                          openPopup();
+              } else {
+                  marker = L.marker(center).bindPopup(r.name).addTo(map).openPopup();
+              }
+          }
+      })
+  })
+</script>

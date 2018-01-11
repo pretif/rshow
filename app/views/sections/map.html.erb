@@ -1,0 +1,53 @@
+<h1>Sections#map</h1>
+<div id="mapid"></div>
+<script>
+  L.Icon.Default.imagePath = '/assets/';
+  L.Icon.Default.mergeOptions({
+      iconRetinaUrl: 'images/marker-icon-2x.png',
+      iconUrl: 'images/marker-icon.png',
+      shadowUrl: 'images/marker-shadow.png',
+  });
+
+  var corner1 = L.latLng(-25171.303660355043, -130752.17988621397),
+          corner2 = L.latLng(118870.63539873651, 21623.98133454332),
+          bounds = L.latLngBounds(corner1, corner2);
+
+  var crs = new L.Proj.CRS("EPSG:2192",
+          "+proj=lcc +lat_1=46.8 +lat_0=46.8 +lon_0=2.337229166666667 +k_0=0.99987742 +x_0=600000 +y_0=2200000 +ellps=intl +towgs84=-87,-98,-121,0,0,0,0 +units=m +no_defs",
+          {
+              //origin: [1712,-2291],
+              resolutions: [16384, 8192, 4096, 2048, 1024, 512, 256, 128, 64, 32, 8, 4, 2, 1, 0.5, 0.25, 0.125] // 4 example zoom level resolutions
+          });
+
+  var map = L.map('mapid', {crs: crs}).setView(L.latLng(26.70625, -2.87625), 6, crs);
+
+  var wmsLayer = L.tileLayer.wms("http://localhost:8080/geoserver/topp/wms", {
+      layers: 'topp:gfxvector',
+      crs: crs,
+      format: 'image/png',
+      transparent: true
+  });
+
+  //map.fitBounds([45.25,-5.2],[51.1,8.23]);
+
+  map.addLayer(wmsLayer);
+
+  function onMapClick(e) {
+      alert("You clicked the map at " + e.latlng);
+  }
+
+  map.on('click', onMapClick);
+
+  L.Routing.control({
+      waypoints: [
+          L.latLng(26.70625, -2.87625)]
+  }).addTo(map);
+
+  var toto = new L.Control.Geocoder.nominatim({serviceUrl: 'http://localhost:3000/geocoder/'});
+
+  var geocoder = new L.Control.Geocoder({geocoder: toto});
+  
+  var geo = geocoder.addTo(map);
+
+  
+</script>

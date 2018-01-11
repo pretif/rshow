@@ -1,0 +1,112 @@
+<h1>Sections#map42</h1>
+<div id="mapid"></div>
+<script>
+  L.Icon.Default.imagePath = '/assets/';
+  L.Icon.Default.mergeOptions({
+      iconRetinaUrl: 'images/marker-icon-2x.png',
+      iconUrl: 'images/marker-icon.png',
+      shadowUrl: 'images/marker-shadow.png',
+  });
+  var crs = new L.Proj.CRS("EPSG:2192",
+          "+proj=lcc +lat_1=46.8 +lat_0=46.8 +lon_0=2.337229166666667 +k_0=0.99987742 +x_0=600000 +y_0=2200000 +ellps=intl +towgs84=-87,-98,-121,0,0,0,0 +units=m +no_defs",
+          {
+              //origin: [1712,-2291],
+              resolutions: [16384, 8192, 4096, 2048, 1024, 512, 256, 128, 64, 32, 8, 4, 2, 1, 0.5, 0.25, 0.125] //  example zoom level resolutions
+          });
+  var map = L.map('mapid', {crs: crs}).setView(L.latLng(26.70625, -2.87625), 6, crs);
+
+  var wmsLayer = L.tileLayer.wms("http://localhost:8080/geoserver/Kbase42222/wms", {
+      layers: 'Kbase42222:infra281',
+      crs: crs,
+      format: 'image/png',
+      transparent: true
+  });
+  map.addLayer(wmsLayer);
+
+	L.Control.Geocoder.callbackId = 0;
+	L.Control.Geocoder.jsonp = function(url, params, callback, context, jsonpParam) {
+		var callbackId = '_l_geocoder_' + (L.Control.Geocoder.callbackId++);
+		params[jsonpParam || 'callback'] = callbackId;
+		window[callbackId] = L.Util.bind(callback, context);
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = url + L.Util.getParamString(params);
+		script.id = callbackId;
+		document.getElementsByTagName('head')[0].appendChild(script);
+	};
+
+  L.Control.Geocoder.Nominatim.include({
+ /*   jsonp: function(url, params, callback, context, jsonpParam) {
+		var callbackId = '_l_geocoder_' + (L.Control.Geocoder.callbackId++);
+		params[jsonpParam || 'callback'] = callbackId;
+		window[callbackId] = L.Util.bind(callback, context);
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = url + L.Util.getParamString(params);
+		script.id = callbackId;
+		document.getElementsByTagName('head')[0].appendChild(script);
+	},*/
+      geocode: function(query, cb, context) {
+          L.Control.Geocoder.jsonp(this.options.serviceUrl + 'search/', L.extend({
+              q: query,
+              limit: 5,
+              format: 'json',
+              addressdetails: 1
+          }, this.options.geocodingQueryParams),
+                  function (data) {
+                      var results = [];
+                      for (var i = data.length - 1; i >= 0; i--) {
+                          var lat = data[i].lat, lon = data[i].lon,
+                                  npt = L.point(lat, lon),
+                                  center = crs.unproject(npt),
+                                  bounds = center.toBounds(50);
+                          //    bbox = L.LatLngBounds(center,center);
+                          //for (var j = 0; j < 4; j++) bbox[j] = parseFloat(bbox[j]);
+                          results[i] = {
+                              icon: "http:\/\/nominatim.openstreetmap.org\/images\/mapicons\/poi_place_city.p.20.png",
+                              name: data[i].display_name,
+                              html: this.options.htmlTemplate ?
+                                      this.options.htmlTemplate(data[i])
+                                      : undefined,
+                              bbox: bounds,
+                              center: center,
+                              properties: "tst"
+                          };
+                      }
+                      cb.call(context, results);
+                  }, this, 'json_callback');
+      }
+  });
+
+
+  var mygc = new L.Control.Geocoder.nominatim({
+      serviceUrl: 'http://localhost:3000/geocoder/',
+      htmlTemplate: function (r) {
+      }
+  });
+
+  var control = L.Routing.control({
+      waypoints: [
+          L.latLng(26.70625, -2.87625), L.latLng(26.80625, -2.89625)
+      ],
+      language: 'fr',
+      show: true,
+      routeWhileDragging: false,
+      reverseWaypoints: true,
+      geocoder: mygc,
+      serviceUrl: 'http://localhost:3000/routing/route'
+  })
+  control.addTo(map);
+
+  L.Routing.errorControl(control).addTo(map);
+
+  /*
+   function onMapClick(e) {
+   var xy = crs.project(e.latlng),
+   alert("You clicked the map at " + e.latlng + "x: " + xy );
+   }
+   
+   map.on('click', onMapClick);
+   */
+
+</script>

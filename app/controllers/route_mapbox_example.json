@@ -1,0 +1,1821 @@
+https://api.mapbox.com/directions/v5/mapbox/driving/2.3469, 48.8588;2.3071289062500004, 49.26780455063753?overview=false&alternatives=true&steps=true&access_token=pk.eyJ1IjoibGllZG1hbiIsImEiOiJjaXZ0NnY0MXYwMDF5Mm9wOG5ybDkzZjVxIn0.bmEltGba1OZiymE5yc_48w
+
+        {
+            "routes": [{
+                    "legs": [{
+                            "summary": "A 115, D 929",
+                            "weight": 5056.5,
+                            "duration": 4552.1,
+                            "steps": [{
+                                    "intersections": [{
+                                            "out": 0,
+                                            "entry": [true],
+                                            "bearings": [296],
+                                            "location": [2.346969, 48.858891]
+                                        }],
+                                    "geometry": "aweiHqkiMWhAADK`@",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 296,
+                                        "bearing_before": 0,
+                                        "location": [2.346969, 48.858891],
+                                        "modifier": "left",
+                                        "type": "depart",
+                                        "instruction": "Head northwest on Rue de Rivoli"
+                                    },
+                                    "weight": 34,
+                                    "duration": 17.7,
+                                    "name": "Rue de Rivoli",
+                                    "distance": 46.7
+                                }, {
+                                    "intersections": [{
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [false, false, true, true],
+                                            "bearings": [45, 120, 210, 300],
+                                            "location": [2.346397, 48.859078]
+                                        }, {
+                                            "out": 1,
+                                            "in": 0,
+                                            "entry": [false, true, false],
+                                            "bearings": [30, 210, 300],
+                                            "location": [2.34618, 48.858862]
+                                        }, {
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, false, true, true],
+                                            "bearings": [30, 120, 195, 300],
+                                            "location": [2.346017, 48.858649]
+                                        }],
+                                    "geometry": "gxeiH_hiMHJ`@^b@ZDBx@\\TJ",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 212,
+                                        "bearing_before": 295,
+                                        "location": [2.346397, 48.859078],
+                                        "modifier": "left",
+                                        "type": "turn",
+                                        "instruction": "Turn left onto Rue des Lavandières Sainte-Opportune"
+                                    },
+                                    "weight": 36.9,
+                                    "duration": 24.3,
+                                    "name": "Rue des Lavandières Sainte-Opportune",
+                                    "distance": 101.9
+                                }, {
+                                    "intersections": [{
+                                            "out": 1,
+                                            "in": 0,
+                                            "entry": [false, true, false],
+                                            "bearings": [15, 105, 195],
+                                            "location": [2.345812, 48.858253]
+                                        }],
+                                    "geometry": "aseiHidiM|@qFH_@",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 111,
+                                        "bearing_before": 198,
+                                        "location": [2.345812, 48.858253],
+                                        "modifier": "left",
+                                        "type": "turn",
+                                        "instruction": "Turn left onto Avenue Victoria"
+                                    },
+                                    "weight": 35.1,
+                                    "duration": 29.8,
+                                    "name": "Avenue Victoria",
+                                    "distance": 108
+                                }, {
+                                    "intersections": [{
+                                            "out": 2,
+                                            "in": 3,
+                                            "entry": [true, false, true, false],
+                                            "bearings": [15, 120, 195, 285],
+                                            "location": [2.347183, 48.857893]
+                                        }],
+                                    "geometry": "ypeiH{liMVL|@b@D@D?B?RM",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 201,
+                                        "bearing_before": 111,
+                                        "location": [2.347183, 48.857893],
+                                        "modifier": "right",
+                                        "type": "turn",
+                                        "instruction": "Turn right onto Place du Châtelet"
+                                    },
+                                    "weight": 36.7,
+                                    "duration": 31.5,
+                                    "name": "Place du Châtelet",
+                                    "distance": 73.7
+                                }, {
+                                    "intersections": [{
+                                            "out": 0,
+                                            "in": 3,
+                                            "entry": [true, true, false, false],
+                                            "bearings": [135, 180, 285, 330],
+                                            "location": [2.346993, 48.857275]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false],
+                                            "bearings": [90, 195, 315],
+                                            "location": [2.347105, 48.857213]
+                                        }],
+                                    "geometry": "_meiHukiMFIDM@O?O",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 129,
+                                        "bearing_before": 151,
+                                        "location": [2.346993, 48.857275],
+                                        "modifier": "left",
+                                        "type": "turn",
+                                        "instruction": "Turn left onto Quai de Gesvres"
+                                    },
+                                    "weight": 6.4,
+                                    "duration": 5.4,
+                                    "name": "Quai de Gesvres",
+                                    "distance": 23.1
+                                }, {
+                                    "intersections": [{
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [60, 120, 270],
+                                            "location": [2.347272, 48.857201]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false, true],
+                                            "bearings": [15, 120, 195, 300],
+                                            "location": [2.347777, 48.857724]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false, true],
+                                            "bearings": [15, 120, 195, 300],
+                                            "location": [2.348205, 48.858492]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [15, 105, 195],
+                                            "location": [2.34833, 48.858721]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [15, 120, 195],
+                                            "location": [2.348758, 48.859525]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [15, 90, 195],
+                                            "location": [2.349062, 48.860069]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [15, 105, 195],
+                                            "location": [2.349328, 48.860553]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [15, 105, 195],
+                                            "location": [2.350142, 48.861999]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false, false],
+                                            "bearings": [15, 105, 195, 285],
+                                            "location": [2.350928, 48.863411]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false, true],
+                                            "bearings": [15, 120, 195, 315],
+                                            "location": [2.351356, 48.864176]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false, true],
+                                            "bearings": [15, 75, 195, 255],
+                                            "location": [2.351482, 48.864409]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false, false],
+                                            "bearings": [15, 75, 195, 270],
+                                            "location": [2.351944, 48.865243]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false, false],
+                                            "bearings": [15, 105, 195, 285],
+                                            "location": [2.352497, 48.86624]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false, true],
+                                            "bearings": [15, 105, 195, 285],
+                                            "location": [2.352939, 48.86704]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [15, 195, 285],
+                                            "location": [2.353423, 48.867913]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false],
+                                            "bearings": [15, 105, 195],
+                                            "location": [2.353577, 48.868191]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false, false],
+                                            "bearings": [15, 105, 195, 285],
+                                            "location": [2.353849, 48.868682]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false, true],
+                                            "bearings": [15, 105, 195, 285],
+                                            "location": [2.354215, 48.869341]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [15, 195, 285],
+                                            "location": [2.354938, 48.870608]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [15, 195, 285],
+                                            "location": [2.355181, 48.87104]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false, false],
+                                            "bearings": [15, 120, 195, 300],
+                                            "location": [2.35588, 48.872281]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [15, 30, 195],
+                                            "location": [2.356691, 48.873725]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, false],
+                                            "bearings": [30, 195, 285],
+                                            "location": [2.356747, 48.873823]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false, true],
+                                            "bearings": [30, 60, 210, 330],
+                                            "location": [2.357167, 48.874485]
+                                        }],
+                                    "geometry": "oleiHmmiMIa@EKGGCCCAc@SQIQKWKm@YaAe@EAKGICSKOGuCoAKE}As@MG_Bu@gAg@_Ac@oCqAIC{As@_Bu@iAg@SK_CgAGCQI[MIEGCg@UiB{@SIuDeBQIqCoAMGUK{@a@YMKGu@[k@WKGg@Uo@YIEk@WECIEcAc@CC]OoEuBOIMG_Ac@GC]QCAgBy@}Au@OGSKeEmBgAg@QKeCsAi@_@UK",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 66,
+                                        "bearing_before": 95,
+                                        "location": [2.347272, 48.857201],
+                                        "modifier": "slight left",
+                                        "type": "turn",
+                                        "instruction": "Make a slight left onto Place du Châtelet"
+                                    },
+                                    "weight": 454.4,
+                                    "duration": 386.40000000000003,
+                                    "name": "Place du Châtelet",
+                                    "distance": 2098.7999999999997
+                                }, {
+                                    "intersections": [{
+                                            "out": 3,
+                                            "in": 2,
+                                            "entry": [true, true, false, true],
+                                            "bearings": [15, 150, 210, 330],
+                                            "location": [2.357391, 48.874806]
+                                        }, {
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [150, 210, 330],
+                                            "location": [2.35731, 48.874892]
+                                        }, {
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [false, false, true],
+                                            "bearings": [90, 150, 330],
+                                            "location": [2.356725, 48.875546]
+                                        }, {
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [150, 240, 330],
+                                            "location": [2.356474, 48.875825]
+                                        }, {
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [150, 225, 330],
+                                            "location": [2.356121, 48.876217]
+                                        }, {
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [60, 150, 330],
+                                            "location": [2.355994, 48.876363]
+                                        }, {
+                                            "out": 3,
+                                            "in": 1,
+                                            "entry": [false, false, true, true],
+                                            "bearings": [60, 150, 285, 330],
+                                            "location": [2.355885, 48.87648]
+                                        }, {
+                                            "out": 3,
+                                            "in": 1,
+                                            "entry": [false, false, true, true],
+                                            "bearings": [60, 150, 240, 330],
+                                            "location": [2.355119, 48.877321]
+                                        }, {
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [60, 150, 330],
+                                            "location": [2.354315, 48.878236]
+                                        }, {
+                                            "out": 4,
+                                            "in": 2,
+                                            "entry": [true, true, false, false, true],
+                                            "bearings": [15, 75, 150, 255, 330],
+                                            "location": [2.35406, 48.878528]
+                                        }, {
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, false, true],
+                                            "bearings": [150, 225, 330],
+                                            "location": [2.353352, 48.879314]
+                                        }, {
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [45, 150, 330],
+                                            "location": [2.353211, 48.879469]
+                                        }, {
+                                            "out": 6,
+                                            "in": 3,
+                                            "entry": [true, true, false, false, true, true, true],
+                                            "bearings": [30, 60, 105, 150, 180, 240, 330],
+                                            "location": [2.352286, 48.880511]
+                                        }, {
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, false, true],
+                                            "bearings": [150, 285, 330],
+                                            "location": [2.35217, 48.88063]
+                                        }, {
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [150, 210, 330],
+                                            "location": [2.351416, 48.881452]
+                                        }, {
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, false, true],
+                                            "bearings": [150, 240, 330],
+                                            "location": [2.349864, 48.883195]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false, false],
+                                            "bearings": [0, 90, 165, 270],
+                                            "location": [2.34952, 48.883608]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false],
+                                            "bearings": [0, 180],
+                                            "location": [2.349496, 48.883731]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false, true],
+                                            "bearings": [0, 90, 180, 255],
+                                            "location": [2.349473, 48.883853]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [0, 180, 255],
+                                            "location": [2.349484, 48.88413]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, false],
+                                            "bearings": [0, 180, 285],
+                                            "location": [2.349486, 48.884205]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, false],
+                                            "bearings": [0, 180, 285],
+                                            "location": [2.34949, 48.884466]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false],
+                                            "bearings": [0, 90, 180],
+                                            "location": [2.349508, 48.88526]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false, false],
+                                            "bearings": [0, 75, 180, 285],
+                                            "location": [2.349523, 48.885542]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false, false],
+                                            "bearings": [0, 75, 180, 255],
+                                            "location": [2.349546, 48.886552]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [0, 180, 270],
+                                            "location": [2.349569, 48.887171]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false, false],
+                                            "bearings": [0, 75, 180, 270],
+                                            "location": [2.349563, 48.887416]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false, true],
+                                            "bearings": [0, 90, 180, 270],
+                                            "location": [2.349579, 48.888354]
+                                        }],
+                                    "geometry": "qzhiHulkMONs@j@oAfASRc@^c@^i@d@MJMLWR_@\\gCzBYTqC`CKFYVQNMJe@`@A@]XaA|@SP_@ZKJIFiCxBo@h@WVi@d@IH_Ax@o@j@SNsAjASNmExDSPe@b@WRIDIDWBWDUAa@?OAK?G?_@?]?iBCU?w@Aa@AgDCkBCO?S?]@[Ao@AS?iA?O?Q?aEAM?",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 327,
+                                        "bearing_before": 23,
+                                        "location": [2.357391, 48.874806],
+                                        "modifier": "left",
+                                        "type": "turn",
+                                        "instruction": "Turn left onto Boulevard de Magenta"
+                                    },
+                                    "weight": 508.29999999999995,
+                                    "duration": 462.8,
+                                    "name": "Boulevard de Magenta",
+                                    "distance": 1789.3
+                                }, {
+                                    "intersections": [{
+                                            "out": 1,
+                                            "in": 2,
+                                            "entry": [true, true, false, false],
+                                            "bearings": [0, 45, 180, 240],
+                                            "location": [2.349588, 48.889479]
+                                        }],
+                                    "geometry": "gvkiH}{iMKUkDeIKW",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 50,
+                                        "bearing_before": 0,
+                                        "location": [2.349588, 48.889479],
+                                        "modifier": "right",
+                                        "type": "turn",
+                                        "instruction": "Turn right onto Rue Labat"
+                                    },
+                                    "weight": 60.7,
+                                    "duration": 54.6,
+                                    "name": "Rue Labat",
+                                    "distance": 174.3
+                                }, {
+                                    "intersections": [{
+                                            "out": 0,
+                                            "in": 3,
+                                            "entry": [true, true, false, false, false],
+                                            "bearings": [15, 90, 180, 225, 285],
+                                            "location": [2.351446, 48.89046]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false, true],
+                                            "bearings": [15, 105, 195, 285],
+                                            "location": [2.351622, 48.891185]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, false],
+                                            "bearings": [15, 195, 285],
+                                            "location": [2.351711, 48.891469]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, false],
+                                            "bearings": [15, 195, 285],
+                                            "location": [2.352366, 48.89264]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, false],
+                                            "bearings": [15, 195, 285],
+                                            "location": [2.352698, 48.893243]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [0, 105, 180],
+                                            "location": [2.352884, 48.894221]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [0, 180, 255],
+                                            "location": [2.35292, 48.89498]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [0, 180, 285],
+                                            "location": [2.352925, 48.895111]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [0, 180, 270],
+                                            "location": [2.352542, 48.89796]
+                                        }],
+                                    "geometry": "k|kiHqgjMMAcC_@w@QuDeBMGe@U_@OwAq@eBSmAMKAC?_BGw@?YAoGRkBR}Dd@s@D",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 8,
+                                        "bearing_before": 50,
+                                        "location": [2.351446, 48.89046],
+                                        "modifier": "left",
+                                        "type": "turn",
+                                        "instruction": "Turn left onto Rue des Poissonniers"
+                                    },
+                                    "weight": 242.7,
+                                    "duration": 217.09999999999997,
+                                    "name": "Rue des Poissonniers",
+                                    "distance": 879.5
+                                }, {
+                                    "intersections": [{
+                                            "out": 1,
+                                            "in": 2,
+                                            "entry": [true, true, false, false],
+                                            "bearings": [0, 90, 180, 270],
+                                            "location": [2.352514, 48.898215]
+                                        }, {
+                                            "out": 1,
+                                            "in": 3,
+                                            "entry": [false, true, true, false],
+                                            "bearings": [0, 90, 180, 285],
+                                            "location": [2.35901, 48.898538]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false],
+                                            "bearings": [90, 270],
+                                            "location": [2.359182, 48.898533]
+                                        }],
+                                    "geometry": "{lmiHenjMAw@AmDI}HCW]{CQoO?Q@Y@a@?e@",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 85,
+                                        "bearing_before": 355,
+                                        "location": [2.352514, 48.898215],
+                                        "modifier": "right",
+                                        "type": "turn",
+                                        "instruction": "Turn right onto Boulevard Ney"
+                                    },
+                                    "weight": 116.6,
+                                    "duration": 69.1,
+                                    "name": "Boulevard Ney",
+                                    "distance": 504.6
+                                }, {
+                                    "intersections": [{
+                                            "out": 0,
+                                            "in": 3,
+                                            "entry": [true, true, false, false],
+                                            "bearings": [0, 90, 180, 270],
+                                            "location": [2.359371, 48.898534]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false, true],
+                                            "bearings": [0, 90, 180, 270],
+                                            "location": [2.359362, 48.898699]
+                                        }, {
+                                            "out": 0,
+                                            "in": 4,
+                                            "entry": [true, true, true, false, false],
+                                            "bearings": [0, 30, 45, 150, 180],
+                                            "location": [2.359383, 48.899445]
+                                        }],
+                                    "geometry": "ynmiHaykMa@@W?E?mA?i@CQ?]?s@E",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 357,
+                                        "bearing_before": 88,
+                                        "location": [2.359371, 48.898534],
+                                        "modifier": "left",
+                                        "type": "turn",
+                                        "instruction": "Turn left"
+                                    },
+                                    "weight": 22.9,
+                                    "duration": 22.9,
+                                    "name": "",
+                                    "distance": 157.5
+                                }, {
+                                    "intersections": [{
+                                            "classes": ["motorway"],
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [0, 15, 180],
+                                            "location": [2.359411, 48.899948]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, false, true],
+                                            "bearings": [173, 181, 358],
+                                            "location": [2.358861, 48.902453]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [false, false, true],
+                                            "bearings": [173, 178, 357],
+                                            "location": [2.358831, 48.902981]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false],
+                                            "bearings": [0, 180],
+                                            "location": [2.358575, 48.906148]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false],
+                                            "bearings": [0, 180],
+                                            "location": [2.357588, 48.918346]
+                                        }],
+                                    "geometry": "uwmiHiykM_@?oAC}@GY@KDMDSHc@Zi@Xi@PeCXiBDeADsPj@ei@hBaa@zAwSr@",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 358,
+                                        "bearing_before": 2,
+                                        "location": [2.359411, 48.899948],
+                                        "modifier": "slight left",
+                                        "type": "on ramp",
+                                        "instruction": "Take the ramp on the left onto A 1"
+                                    },
+                                    "ref": "A 1",
+                                    "weight": 129.70000000000002,
+                                    "duration": 129.70000000000002,
+                                    "name": "A 1",
+                                    "distance": 2425.8
+                                }, {
+                                    "intersections": [{
+                                            "classes": ["motorway"],
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [1, 177, 357],
+                                            "location": [2.357329, 48.921668]
+                                        }],
+                                    "geometry": "m_riHilkM_ECkDDeB@m@A",
+                                    "mode": "driving",
+                                    "exits": "2",
+                                    "destinations": "St Denis la Plaine, Stade de Fce",
+                                    "maneuver": {
+                                        "bearing_after": 0,
+                                        "bearing_before": 355,
+                                        "location": [2.357329, 48.921668],
+                                        "modifier": "slight right",
+                                        "type": "off ramp",
+                                        "instruction": "Take exit 2 on the right towards St Denis la Plaine"
+                                    },
+                                    "weight": 22.4,
+                                    "duration": 22.4,
+                                    "name": "",
+                                    "distance": 284.9
+                                }, {
+                                    "intersections": [{
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false],
+                                            "bearings": [0, 165, 180],
+                                            "location": [2.357324, 48.924229]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, false],
+                                            "bearings": [0, 180, 255],
+                                            "location": [2.35717, 48.925778]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [0, 75, 180],
+                                            "location": [2.357168, 48.925834]
+                                        }],
+                                    "geometry": "moriHglkM{AHyERI?gAD",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 355,
+                                        "bearing_before": 0,
+                                        "location": [2.357324, 48.924229],
+                                        "modifier": "straight",
+                                        "type": "turn",
+                                        "instruction": "Go straight onto Avenue du Président Wilson"
+                                    },
+                                    "weight": 77.7,
+                                    "duration": 59.7,
+                                    "name": "Avenue du Président Wilson",
+                                    "distance": 218.7
+                                }, {
+                                    "intersections": [{
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [0, 180, 270],
+                                            "location": [2.357138, 48.926191]
+                                        }, {
+                                            "out": 3,
+                                            "in": 1,
+                                            "entry": [false, false, true, true],
+                                            "bearings": [0, 90, 180, 255],
+                                            "location": [2.356574, 48.92618]
+                                        }, {
+                                            "out": 4,
+                                            "in": 1,
+                                            "entry": [true, false, true, false, true, false],
+                                            "bearings": [0, 75, 135, 210, 255, 315],
+                                            "location": [2.356078, 48.926073]
+                                        }, {
+                                            "out": 1,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [90, 255, 270],
+                                            "location": [2.354395, 48.925945]
+                                        }, {
+                                            "out": 3,
+                                            "in": 1,
+                                            "entry": [false, false, true, true],
+                                            "bearings": [0, 60, 180, 255],
+                                            "location": [2.353485, 48.925628]
+                                        }, {
+                                            "out": 3,
+                                            "in": 1,
+                                            "entry": [true, false, false, true],
+                                            "bearings": [30, 135, 225, 315],
+                                            "location": [2.350702, 48.925542]
+                                        }],
+                                    "geometry": "u{riHckkM@pBDVNhAD\\DT@Z@\\BtCBjAN~@Pr@Zv@@HLp@LhBHpAP~BFhAA\\IVWl@IPMV",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 267,
+                                        "bearing_before": 355,
+                                        "location": [2.357138, 48.926191],
+                                        "modifier": "left",
+                                        "type": "turn",
+                                        "instruction": "Turn left onto Rue Jules Saulnier (N 412)"
+                                    },
+                                    "ref": "N 412",
+                                    "weight": 155.29999999999998,
+                                    "duration": 131,
+                                    "name": "Rue Jules Saulnier (N 412)",
+                                    "distance": 507.3
+                                }, {
+                                    "intersections": [{
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [false, false, true, true],
+                                            "bearings": [45, 135, 225, 300],
+                                            "location": [2.350581, 48.925611]
+                                        }, {
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [45, 135, 225],
+                                            "location": [2.350494, 48.925541]
+                                        }, {
+                                            "out": 1,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [45, 225, 255],
+                                            "location": [2.348141, 48.923647]
+                                        }],
+                                    "geometry": "axriHcbjMLPrGtI`BxBBDb@j@",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 217,
+                                        "bearing_before": 310,
+                                        "location": [2.350581, 48.925611],
+                                        "modifier": "left",
+                                        "type": "turn",
+                                        "instruction": "Turn left onto Boulevard Anatole France (N 410)"
+                                    },
+                                    "ref": "N 410",
+                                    "weight": 28.3,
+                                    "duration": 28.3,
+                                    "name": "Boulevard Anatole France (N 410)",
+                                    "distance": 307.5
+                                }, {
+                                    "intersections": [{
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [45, 225, 240],
+                                            "location": [2.34792, 48.923469]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [false, false, true],
+                                            "bearings": [98, 104, 287],
+                                            "location": [2.344442, 48.923201]
+                                        }],
+                                    "geometry": "ujriHoqiMZ~@XjARxAFp@Dn@?p@?p@Cr@KjBQjBKx@If@IZe@~AWp@q@zAkAfC{@nB{@xB",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 234,
+                                        "bearing_before": 217,
+                                        "location": [2.34792, 48.923469],
+                                        "modifier": "slight right",
+                                        "type": "on ramp",
+                                        "instruction": "Take the ramp on the right onto A 86"
+                                    },
+                                    "ref": "A 86",
+                                    "weight": 72.8,
+                                    "duration": 72.8,
+                                    "name": "A 86",
+                                    "distance": 597.6
+                                }, {
+                                    "intersections": [{
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, false, true],
+                                            "bearings": [120, 135, 315],
+                                            "location": [2.340774, 48.924903]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 1,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [105, 285, 300],
+                                            "location": [2.334924, 48.927115]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [false, false, true],
+                                            "bearings": [105, 120, 285],
+                                            "location": [2.329765, 48.929212]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 1,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [122, 308, 313],
+                                            "location": [2.324239, 48.930751]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [false, false, true],
+                                            "bearings": [117, 121, 295],
+                                            "location": [2.316497, 48.93765]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 1,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [105, 285, 300],
+                                            "location": [2.314787, 48.938129]
+                                        }],
+                                    "geometry": "ssriHydhMoA|BkAdC_A`CUp@St@[dAi@`Cc@`Cm@jEUlBG^Y~Be@hCCFqA`Fe@hAi@~@}@xAw@fBeAdEuAtIwAhJqAtGm@lBELu@hBUb@e@|@oAbBaAbAk@h@cCdB}GjEoBnAgAp@cAr@gA~@aAdAw@jAo@hAm@tAi@rAkA~Dw@tDg@~COdBSfCGx@MbBc@nIYjGGbB",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 313,
+                                        "bearing_before": 306,
+                                        "location": [2.340774, 48.924903],
+                                        "modifier": "slight left",
+                                        "type": "merge",
+                                        "instruction": "Merge left onto A 86"
+                                    },
+                                    "ref": "A 86",
+                                    "weight": 146.4,
+                                    "duration": 146.1,
+                                    "name": "A 86",
+                                    "distance": 2906.3
+                                }, {
+                                    "intersections": [{
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [90, 270, 285],
+                                            "location": [2.309285, 48.938766]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [false, false, true],
+                                            "bearings": [89, 96, 270],
+                                            "location": [2.299158, 48.939385]
+                                        }],
+                                    "geometry": "ijuiHa`bMcAlRG`CG~CAv@?|@?hAHpD?rCE|BOvCM|CK~C@zFC~HGrASfAg@pAeD`J",
+                                    "mode": "driving",
+                                    "destinations": "Cergy-Pontoise, Argenteuil - Orgemont",
+                                    "maneuver": {
+                                        "bearing_after": 278,
+                                        "bearing_before": 275,
+                                        "location": [2.309285, 48.938766],
+                                        "modifier": "slight right",
+                                        "type": "off ramp",
+                                        "instruction": "Take the ramp on the right towards Cergy-Pontoise"
+                                    },
+                                    "weight": 66.4,
+                                    "duration": 66.3,
+                                    "name": "",
+                                    "distance": 1210
+                                }, {
+                                    "intersections": [{
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, false, true],
+                                            "bearings": [120, 135, 315],
+                                            "location": [2.293337, 48.940569]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 1,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [169, 342, 348],
+                                            "location": [2.279566, 48.952967]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [false, false, true],
+                                            "bearings": [120, 135, 315],
+                                            "location": [2.272762, 48.959517]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 1,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [135, 300, 315],
+                                            "location": [2.270843, 48.960489]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [false, false, true],
+                                            "bearings": [120, 124, 302],
+                                            "location": [2.263756, 48.963905]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [false, false, true],
+                                            "bearings": [116, 118, 298],
+                                            "location": [2.258449, 48.965954]
+                                        }],
+                                    "geometry": "quuiHk|~LgEnJ}KhVyEfKgDlH_BbDeBxCaBvBwArAkBtAmB~@qC~@oAV}@ReC`@cFz@kCl@wAXkCdAiBp@cBz@eEnCwBlBsBtBoEbGaBxCk@jAo@rAmB`EUh@aE~JwMx\\yBhGyAbEg@bBc@vAaAfDYdAq@~BkAvDqBbIyA`G}BlKcBlH_B~EkAjCi@~@g@z@aArAcAjAmAhA_DhCcEvCqAnA",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 309,
+                                        "bearing_before": 305,
+                                        "location": [2.293337, 48.940569],
+                                        "modifier": "slight left",
+                                        "type": "merge",
+                                        "instruction": "Merge left onto A 15"
+                                    },
+                                    "ref": "A 15",
+                                    "weight": 184.1,
+                                    "duration": 184,
+                                    "name": "Viaduc de Gennevilliers (A 15)",
+                                    "distance": 4995.7
+                                }, {
+                                    "intersections": [{
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [148, 323, 327],
+                                            "location": [2.2482, 48.97205]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [3, 6, 186],
+                                            "location": [2.240947, 48.979328]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false],
+                                            "bearings": [20, 196, 200],
+                                            "location": [2.243514, 48.988418]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [0, 15, 195],
+                                            "location": [2.246524, 48.995171]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false],
+                                            "bearings": [0, 165, 180],
+                                            "location": [2.246535, 49.000117]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [1, 178, 356],
+                                            "location": [2.246348, 49.003122]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 1,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [114, 293, 298],
+                                            "location": [2.22358, 49.011969]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [false, false, true],
+                                            "bearings": [135, 150, 330],
+                                            "location": [2.21475, 49.017014]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 1,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [139, 315, 317],
+                                            "location": [2.207125, 49.025752]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [false, false, true],
+                                            "bearings": [135, 150, 330],
+                                            "location": [2.200213, 49.031697]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [150, 330, 345],
+                                            "location": [2.188395, 49.042885]
+                                        }],
+                                    "geometry": "iz{iHgbvLkChCaAdAY^QXyC|Ec@z@cA`Cg@pAqAnDq@jBw@xAgAnBoAvAaAx@qAh@y@VoAPkA@uCQw@ImKa@qBM}CUsCYqAQ_Ci@gDq@yBs@qDmAaIoDmCoAaBq@gCiAyFmCmFcBeAWcCq@}Bk@cBWy@MwG[mFAiFJwDLu@?qFTaFHcCDqCP_Cb@aBh@yAt@aBrAiBnBkAtBaAnBc@vAi@jBc@pBsAjJ}@rG{DhXmCzReDjVkAnI_AhGaAfFe@bCk@`Cq@`Cs@`CaArCgCjGaCxEiAtBuCdEyBtCiAjAgAbAeB|AiBxAsBzAcErCsBrAiPfK}FtF_DzDoC|D_DtFsBnDmBzCsClDcErEsEbEwF~EsBvB{E|FmEbFgCzCiD~DuJ|KkGpH}FpGgEtDeFvD_Ar@iAh@iDzBkDvC_CfCkG`He@l@",
+                                    "mode": "driving",
+                                    "destinations": "A16, Calais, Amiens, Beauvais, Ermont, Franconville-Centre",
+                                    "maneuver": {
+                                        "bearing_after": 326,
+                                        "bearing_before": 326,
+                                        "location": [2.2482, 48.97205],
+                                        "modifier": "slight right",
+                                        "type": "fork",
+                                        "instruction": "Keep right at the fork towards A16"
+                                    },
+                                    "ref": "A 115",
+                                    "weight": 423.3,
+                                    "duration": 423.20000000000005,
+                                    "name": "A 115",
+                                    "distance": 10691
+                                }, {
+                                    "intersections": [{
+                                            "classes": ["motorway"],
+                                            "out": 1,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [142, 326, 330],
+                                            "location": [2.18445, 49.047141]
+                                        }],
+                                    "geometry": "sojjHysiLsCtCiAr@s@Xw@Fg@?g@Gu@Qm@e@{@w@g@}@a@aA_@qAWcBQeBQ_BIuAA_CB{C?_EA}@?SMsEQmDQcD_@iE]yC",
+                                    "mode": "driving",
+                                    "destinations": "D 928, Auvers-sur-Oise, Méry-sur-Oise, Frépillon",
+                                    "maneuver": {
+                                        "bearing_after": 326,
+                                        "bearing_before": 320,
+                                        "location": [2.18445, 49.047141],
+                                        "modifier": "slight left",
+                                        "type": "fork",
+                                        "instruction": "Keep left at the fork towards D 928"
+                                    },
+                                    "ref": "A 115",
+                                    "weight": 57.9,
+                                    "duration": 57.9,
+                                    "name": "A 115",
+                                    "distance": 1132
+                                }, {
+                                    "intersections": [{
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false],
+                                            "bearings": [71, 248, 254],
+                                            "location": [2.194159, 49.051426]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false],
+                                            "bearings": [60, 225, 240],
+                                            "location": [2.201866, 49.054965]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [57, 65, 243],
+                                            "location": [2.20602, 49.056594]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false],
+                                            "bearings": [15, 195, 210],
+                                            "location": [2.21206, 49.061014]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [30, 45, 225],
+                                            "location": [2.216941, 49.067034]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, false],
+                                            "bearings": [80, 253, 257],
+                                            "location": [2.228185, 49.072809]
+                                        }],
+                                    "geometry": "mjkjHopkLIq@a@oB_AcEsAeE_BcEaByDsAoCaD}Go@kB[aAeDgJ}CuMyAoEyAeEuBoEgAmBkAaBsA_Bo@q@}@{@_BmAsCeBuJsEyBiA}A{@gCiBqBcB}AcBkBoBaDsEsBeCoFsHsCuEoAmBmAmBi@_Ai@eAk@kAg@kAo@gBo@mBi@kBi@yBUeAWmA]sB]_CS_CS{BM{BM{BGgCAsC?wD",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 70,
+                                        "bearing_before": 73,
+                                        "location": [2.194159, 49.051426],
+                                        "modifier": "slight right",
+                                        "type": "merge",
+                                        "instruction": "Merge right onto N 184"
+                                    },
+                                    "ref": "N 184",
+                                    "weight": 149.79999999999998,
+                                    "duration": 149.79999999999998,
+                                    "name": "N 184",
+                                    "distance": 3810.4
+                                }, {
+                                    "intersections": [{
+                                            "out": 1,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [88, 91, 271],
+                                            "location": [2.231767, 49.072995]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false],
+                                            "bearings": [15, 180, 195],
+                                            "location": [2.257767, 49.086758]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [41, 50, 220],
+                                            "location": [2.26365, 49.097707]
+                                        }, {
+                                            "classes": ["motorway"],
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, false, true],
+                                            "bearings": [134, 137, 322],
+                                            "location": [2.258975, 49.106234]
+                                        }],
+                                    "geometry": "gqojHq{rLB{OBmGDsAD_ADu@RuBRiCH{B@kBGkBEu@a@gCi@yBc@aAy@_B{B{CoAkBgB{DwGyO{FuNiC{FoAiCoCuEkD}EiCqCgHiG_HwDmKeDwCe@m@IgDWmBK}BKgCMsAKsCa@kCi@qDkA}CmA_DiB_CcBuCwBkCmCaCwC{DqFkDaFaC{CiAeBgBuC}AiBWS}@y@mAq@yAc@oAEoAN{An@iA`AcAxAw@rBe@hCQfCCnBAdFG|AOnBa@nBk@lBaBfEcDfGq@z@_BbB{BtBuAdA_CrAoAj@oBr@oEpA{Bl@{Bv@aA`@_Bt@kB~@gDdBmB~@oBt@wBp@sAZgCf@cCZoBLgCF{B?kCI_COm@E",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 90,
+                                        "bearing_before": 90,
+                                        "location": [2.231767, 49.072995],
+                                        "modifier": "slight right",
+                                        "type": "fork",
+                                        "instruction": "Keep right at the fork onto N 184"
+                                    },
+                                    "ref": "N 184",
+                                    "weight": 276.1,
+                                    "duration": 276.1,
+                                    "name": "N 184",
+                                    "distance": 7248.7
+                                }, {
+                                    "distance": 486.6,
+                                    "name": "D 301",
+                                    "intersections": [{
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [0, 15, 180],
+                                            "location": [2.252884, 49.120981]
+                                        }],
+                                    "duration": 21.3,
+                                    "ref": "D 301",
+                                    "maneuver": {
+                                        "bearing_after": 7,
+                                        "bearing_before": 4,
+                                        "location": [2.252884, 49.120981],
+                                        "modifier": "slight right",
+                                        "type": "off ramp",
+                                        "instruction": "Take exit 11 on the right towards Champagne-sur-Oise"
+                                    },
+                                    "destinations": "Champagne-sur-Oise, Persan, Chambly",
+                                    "exits": "11",
+                                    "weight": 21.3,
+                                    "mode": "driving",
+                                    "geometry": "c}xjHo_wLsDg@mBMe@EgBQaCYaCW}@MkAWc@M"
+                                }, {
+                                    "intersections": [{
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [15, 30, 195],
+                                            "location": [2.253775, 49.125314]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, false],
+                                            "bearings": [15, 195, 210],
+                                            "location": [2.255446, 49.128229]
+                                        }, {
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [0, 165, 345],
+                                            "location": [2.255464, 49.134834]
+                                        }, {
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [false, false, true],
+                                            "bearings": [150, 165, 345],
+                                            "location": [2.254984, 49.135816]
+                                        }, {
+                                            "out": 1,
+                                            "in": 0,
+                                            "entry": [false, true],
+                                            "bearings": [165, 345],
+                                            "location": [2.252994, 49.139731]
+                                        }, {
+                                            "out": 1,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [161, 342, 347],
+                                            "location": [2.251977, 49.141709]
+                                        }, {
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [false, false, true],
+                                            "bearings": [159, 162, 342],
+                                            "location": [2.251072, 49.14357]
+                                        }, {
+                                            "out": 1,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [162, 342, 345],
+                                            "location": [2.249091, 49.147531]
+                                        }, {
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [false, false, true],
+                                            "bearings": [158, 162, 342],
+                                            "location": [2.246725, 49.152252]
+                                        }],
+                                    "geometry": "exyjHcewLeA[w@YeAc@kE}BwDuBc@SeCw@_C_@qACeAAcB?y@@uEFM@gCD_AFkAPmARqBd@OHsBv@qAf@i@RyB|@cDrAsIlDi@RGB_A`@kKhEsJtDwWjKo\\vMiObGcBt@iAp@y@j@i@f@{A|Ag@l@sAhBk@dAkO~\\o@tAm@`Ae@n@",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 14,
+                                        "bearing_before": 12,
+                                        "location": [2.253775, 49.125314],
+                                        "modifier": "slight left",
+                                        "type": "fork",
+                                        "instruction": "Keep left at the fork onto D 301"
+                                    },
+                                    "ref": "D 301",
+                                    "weight": 225.49999999999997,
+                                    "duration": 217.2,
+                                    "name": "D 301",
+                                    "distance": 4345
+                                }, {
+                                    "intersections": [{
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, false],
+                                            "bearings": [45, 135, 225],
+                                            "location": [2.237106, 49.160809]
+                                        }, {
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [0, 180, 330],
+                                            "location": [2.237154, 49.160956]
+                                        }, {
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [false, false, true],
+                                            "bearings": [45, 105, 285],
+                                            "location": [2.23693, 49.161091]
+                                        }, {
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [105, 255, 270],
+                                            "location": [2.236837, 49.161105]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [15, 30, 195],
+                                            "location": [2.231297, 49.173462]
+                                        }],
+                                    "geometry": "av`kH}|sLEGW?WXAPCPAb@Id@y@tA_DnE}FfIiG|HmBlByAdAcFfCeE`BcCn@}CVcBMy@KyAi@iAg@yAq@iCqAoAm@yBkAs@]wk@gYgDuAeD}@kDk@e@C",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "exit": 2,
+                                        "bearing_after": 45,
+                                        "bearing_before": 319,
+                                        "location": [2.237106, 49.160809],
+                                        "modifier": "right",
+                                        "type": "roundabout",
+                                        "instruction": "Enter the traffic circle and take the 2nd exit onto Route Nationale 1 (D 1001)"
+                                    },
+                                    "ref": "D 1001",
+                                    "weight": 135.79999999999998,
+                                    "duration": 135,
+                                    "name": "Route Nationale 1 (D 1001)",
+                                    "distance": 2791.2
+                                }, {
+                                    "intersections": [{
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [1, 7, 185],
+                                            "location": [2.236484, 49.183335]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, false, false],
+                                            "bearings": [0, 165, 180],
+                                            "location": [2.236474, 49.184764]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, false],
+                                            "bearings": [15, 165, 240],
+                                            "location": [2.232957, 49.195153]
+                                        }],
+                                    "geometry": "{bekH_ysLwDCcBDoCVcAReAVuKpCmj@fNSK",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 0,
+                                        "bearing_before": 4,
+                                        "location": [2.236484, 49.183335],
+                                        "modifier": "slight left",
+                                        "type": "fork",
+                                        "instruction": "Keep left at the fork onto Route Nationale 1 (D 1001)"
+                                    },
+                                    "ref": "D 1001",
+                                    "weight": 56.6,
+                                    "duration": 56.4,
+                                    "name": "Route Nationale 1 (D 1001)",
+                                    "distance": 1355
+                                }, {
+                                    "intersections": [{
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [30, 195, 315],
+                                            "location": [2.233017, 49.195254]
+                                        }],
+                                    "geometry": "imgkHkcsLUWo@mCc@gBMcC?kA?}AFuD@uCEwBIqE?_CAeECyB?uCA}B?_D@sBTeCRyCLwDRoBGwAmIs_@_AmFu@mEqA{Fs@yC_B{Gc@wBq@wBIw@M}AQiC",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 36,
+                                        "bearing_before": 21,
+                                        "location": [2.233017, 49.195254],
+                                        "modifier": "straight",
+                                        "type": "turn",
+                                        "instruction": "Go straight"
+                                    },
+                                    "weight": 163.3,
+                                    "duration": 162.7,
+                                    "name": "",
+                                    "distance": 2164.9
+                                }, {
+                                    "intersections": [{
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [45, 225, 255],
+                                            "location": [2.261076, 49.19962]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [45, 105, 225],
+                                            "location": [2.26346, 49.201297]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [45, 135, 240],
+                                            "location": [2.266508, 49.203185]
+                                        }, {
+                                            "out": 1,
+                                            "in": 2,
+                                            "entry": [false, true, false],
+                                            "bearings": [45, 60, 225],
+                                            "location": [2.271507, 49.206332]
+                                        }],
+                                    "geometry": "shhkHwrxLuGuKy@eAcFkHs@{Ai@}Aw@{BaAoBaCsCiBqBeAiBkA{CmCkHEK_@s@aG}QmCgLuBaP",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 43,
+                                        "bearing_before": 77,
+                                        "location": [2.261076, 49.19962],
+                                        "modifier": "straight",
+                                        "type": "turn",
+                                        "instruction": "Go straight onto D 49"
+                                    },
+                                    "ref": "D 49",
+                                    "weight": 99.4,
+                                    "duration": 98,
+                                    "name": "D 49",
+                                    "distance": 1715.8
+                                }, {
+                                    "intersections": [{
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, false],
+                                            "bearings": [135, 255, 330],
+                                            "location": [2.279388, 49.208921]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [75, 165, 270],
+                                            "location": [2.279514, 49.208881]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [60, 165, 315],
+                                            "location": [2.27964, 49.209023]
+                                        }],
+                                    "geometry": "wbjkHee|LBE@I@GAIAIEEECE?EB_FiVkIo\\{BgK[}@",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "exit": 2,
+                                        "bearing_after": 135,
+                                        "bearing_before": 70,
+                                        "location": [2.279388, 49.208921],
+                                        "modifier": "straight",
+                                        "type": "roundabout turn",
+                                        "instruction": "At the roundabout continue straight onto D 929"
+                                    },
+                                    "ref": "D 929",
+                                    "weight": 69.1,
+                                    "duration": 56.199999999999996,
+                                    "name": "D 929",
+                                    "distance": 905.3
+                                }, {
+                                    "intersections": [{
+                                            "out": 1,
+                                            "in": 2,
+                                            "entry": [false, true, false],
+                                            "bearings": [0, 165, 240],
+                                            "location": [2.290362, 49.212555]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [60, 165, 270],
+                                            "location": [2.290585, 49.212463]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [60, 165, 330],
+                                            "location": [2.290705, 49.212628]
+                                        }],
+                                    "geometry": "oyjkHwi~LFCDGBI@K?KCIEIGEG?G@aFcU}AuEu@aB_IcJgC}B{B{AeB}@gEc@iK`B}GzA",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "exit": 2,
+                                        "bearing_after": 160,
+                                        "bearing_before": 56,
+                                        "location": [2.290362, 49.212555],
+                                        "modifier": "straight",
+                                        "type": "roundabout turn",
+                                        "instruction": "At the roundabout continue straight onto D 929"
+                                    },
+                                    "ref": "D 929",
+                                    "weight": 88.4,
+                                    "duration": 79.8,
+                                    "name": "D 929",
+                                    "distance": 1414
+                                }, {
+                                    "intersections": [{
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, false],
+                                            "bearings": [75, 165, 270],
+                                            "location": [2.298218, 49.222307]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [15, 105, 225],
+                                            "location": [2.298405, 49.222378]
+                                        }, {
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [105, 270, 345],
+                                            "location": [2.298236, 49.222598]
+                                        }],
+                                    "geometry": "mvlkH{z_MAMCMGIGCIAIDGFEJALsHxAkGr@oEpA_@VmAx@mBfAmFhFgCxB{@j@",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "exit": 2,
+                                        "bearing_after": 80,
+                                        "bearing_before": 347,
+                                        "location": [2.298218, 49.222307],
+                                        "modifier": "straight",
+                                        "type": "roundabout turn",
+                                        "instruction": "At the roundabout continue straight onto D 929"
+                                    },
+                                    "ref": "D 929",
+                                    "weight": 56.900000000000006,
+                                    "duration": 54.9,
+                                    "name": "D 929",
+                                    "distance": 909.8
+                                }, {
+                                    "intersections": [{
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, false],
+                                            "bearings": [30, 150, 225],
+                                            "location": [2.29435, 49.229793]
+                                        }, {
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [45, 150, 315],
+                                            "location": [2.294343, 49.230071]
+                                        }, {
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [75, 240, 345],
+                                            "location": [2.293947, 49.230131]
+                                        }],
+                                    "geometry": "eenkHub_MMKOAMBKJINCRATBRm@Rm@b@q@|@_@p@{AzDUZINoEbGSf@Uv@",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "exit": 2,
+                                        "bearing_after": 28,
+                                        "bearing_before": 334,
+                                        "location": [2.29435, 49.229793],
+                                        "modifier": "right",
+                                        "type": "roundabout",
+                                        "instruction": "Enter the traffic circle and take the 2nd exit onto Avenue de l'Europe (D 929)"
+                                    },
+                                    "ref": "D 929",
+                                    "weight": 45.5,
+                                    "duration": 38.7,
+                                    "name": "Avenue de l'Europe (D 929)",
+                                    "distance": 481.40000000000003
+                                }, {
+                                    "intersections": [{
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, false],
+                                            "bearings": [15, 120, 210],
+                                            "location": [2.290173, 49.232868]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [60, 150, 315],
+                                            "location": [2.290123, 49.233131]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false, true],
+                                            "bearings": [45, 165, 225, 345],
+                                            "location": [2.300115, 49.238812]
+                                        }],
+                                    "geometry": "mxnkHqh~LQEQ@OLq@cBq@aB}AaDiOg[cL_VaU_e@IQqIoQcEwIkKsT}HkP",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "exit": 1,
+                                        "bearing_after": 12,
+                                        "bearing_before": 300,
+                                        "location": [2.290173, 49.232868],
+                                        "modifier": "right",
+                                        "type": "roundabout",
+                                        "instruction": "Enter the traffic circle and take the 1st exit onto D 929"
+                                    },
+                                    "ref": "D 929",
+                                    "weight": 148,
+                                    "duration": 142.4,
+                                    "name": "D 929",
+                                    "distance": 2646.1
+                                }, {
+                                    "intersections": [{
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, false],
+                                            "bearings": [120, 225, 330],
+                                            "location": [2.317208, 49.248627]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [30, 135, 240],
+                                            "location": [2.317645, 49.248606]
+                                        }, {
+                                            "out": 0,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [45, 150, 300],
+                                            "location": [2.317649, 49.248881]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false, true],
+                                            "bearings": [30, 150, 210, 285],
+                                            "location": [2.326157, 49.256381]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [30, 105, 210],
+                                            "location": [2.326681, 49.257052]
+                                        }, {
+                                            "out": 0,
+                                            "in": 2,
+                                            "entry": [true, true, false],
+                                            "bearings": [30, 150, 210],
+                                            "location": [2.327379, 49.257694]
+                                        }],
+                                    "geometry": "}zqkHqqcMJY@_@I]OMSAQNmCqF{C_HKUe@}@aB_DsBuCu@cAqDqDkOeKuDmCGE}BaBwBaCGICC",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "exit": 2,
+                                        "bearing_after": 126,
+                                        "bearing_before": 47,
+                                        "location": [2.317208, 49.248627],
+                                        "modifier": "straight",
+                                        "type": "roundabout turn",
+                                        "instruction": "At the roundabout continue straight onto D 929"
+                                    },
+                                    "ref": "D 929",
+                                    "weight": 120.2,
+                                    "duration": 101.9,
+                                    "name": "D 929",
+                                    "distance": 1296.7
+                                }, {
+                                    "intersections": [{
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [45, 210, 300],
+                                            "location": [2.327399, 49.257712]
+                                        }],
+                                    "geometry": "usskHgqeMYbA_@tAk@dC]v@w@zAWh@sHxO",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 299,
+                                        "bearing_before": 35,
+                                        "location": [2.327399, 49.257712],
+                                        "modifier": "left",
+                                        "type": "turn",
+                                        "instruction": "Turn left onto Rue de la Tour Tillet"
+                                    },
+                                    "weight": 43.2,
+                                    "duration": 43.2,
+                                    "name": "Rue de la Tour Tillet",
+                                    "distance": 470.6
+                                }, {
+                                    "intersections": [{
+                                            "out": 2,
+                                            "in": 0,
+                                            "entry": [false, true, true],
+                                            "bearings": [135, 285, 330],
+                                            "location": [2.322321, 49.260308]
+                                        }],
+                                    "geometry": "}ctkHoqdMa@d@k@VeD`A_Cj@m@DcAC}@DmATqAl@yBp@kBP{Cx@iEtBkBx@mAr@c@Vo@j@}Av@eARwDz@wAZ{B\\MBgHhAcE\\qBH",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 323,
+                                        "bearing_before": 310,
+                                        "location": [2.322321, 49.260308],
+                                        "modifier": "slight right",
+                                        "type": "fork",
+                                        "instruction": "Keep right at the fork"
+                                    },
+                                    "weight": 148.2,
+                                    "duration": 130.6,
+                                    "name": "",
+                                    "distance": 1580
+                                }, {
+                                    "intersections": [{
+                                            "out": 3,
+                                            "in": 2,
+                                            "entry": [true, true, false, true],
+                                            "bearings": [0, 90, 180, 240],
+                                            "location": [2.317412, 49.274036]
+                                        }, {
+                                            "out": 2,
+                                            "in": 1,
+                                            "entry": [true, false, true],
+                                            "bearings": [0, 90, 285],
+                                            "location": [2.310544, 49.273381]
+                                        }],
+                                    "geometry": "wyvkHyrcMH^DPJv@XjC?|@MzAE|AJ~ATrBR|BFn@Dp@JdCJjCDhDI`@",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 243,
+                                        "bearing_before": 355,
+                                        "location": [2.317412, 49.274036],
+                                        "modifier": "left",
+                                        "type": "turn",
+                                        "instruction": "Turn left onto Chemin du Tour de Ville"
+                                    },
+                                    "weight": 290.20000000000005,
+                                    "duration": 144.9,
+                                    "name": "Chemin du Tour de Ville",
+                                    "distance": 523.7
+                                }, {
+                                    "intersections": [{
+                                            "in": 0,
+                                            "entry": [true],
+                                            "bearings": [111],
+                                            "location": [2.310366, 49.273425]
+                                        }],
+                                    "geometry": "}uvkHyfbM",
+                                    "mode": "driving",
+                                    "maneuver": {
+                                        "bearing_after": 0,
+                                        "bearing_before": 291,
+                                        "location": [2.310366, 49.273425],
+                                        "type": "arrive",
+                                        "instruction": "You have arrived at your destination"
+                                    },
+                                    "weight": 0,
+                                    "duration": 0,
+                                    "name": "Chemin du Tour de Ville",
+                                    "distance": 0
+                                }],
+                            "distance": 65379.6
+                        }],
+                    "weight_name": "routability",
+                    "weight": 5056.5,
+                    "duration": 4552.1,
+                    "distance": 65379.6
+                }],
+            "waypoints": [{
+                    "name": "Rue de Rivoli",
+                    "location": [2.346969, 48.858891]
+                }, {
+                    "name": "Chemin du Tour de Ville",
+                    "location": [2.310366, 49.273425]
+                }],
+            "code": "Ok",
+            "uuid": "cjaat2yqv04415bpf6zploklh"
+        }
+

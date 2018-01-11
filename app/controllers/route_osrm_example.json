@@ -1,0 +1,285 @@
+{
+    "routes": [{
+            "legs": [{
+                    "summary": "14th Street Northwest, New York Avenue Northwest",
+                    "weight": 183,
+                    "duration": 128.4,
+                    "steps": [{
+                            "intersections": [{
+                                    "out": 0,
+                                    "entry": [true],
+                                    "bearings": [270],
+                                    "location": [-77.031671, 38.897348]
+                                }],
+                            "geometry": "mcllF|fduM?V?^",
+                            "mode": "driving",
+                            "maneuver": {
+                                "bearing_after": 270,
+                                "bearing_before": 0,
+                                "location": [-77.031671, 38.897348],
+                                "modifier": "right",
+                                "type": "depart"
+                            },
+                            "weight": 20.3,
+                            "duration": 10.2,
+                            "name": "F Street Northwest",
+                            "distance": 24.2
+                        }, {
+                            "intersections": [{
+                                    "out": 0,
+                                    "in": 1,
+                                    "entry": [true, false, false, true],
+                                    "bearings": [0, 90, 180, 270],
+                                    "location": [-77.03195, 38.89735]
+                                }, {
+                                    "out": 0,
+                                    "in": 2,
+                                    "entry": [true, true, false, true],
+                                    "bearings": [0, 90, 180, 270],
+                                    "location": [-77.03195, 38.898321]
+                                }],
+                            "geometry": "mcllFthduMY?eA?mA?S?W?cD?Q?",
+                            "mode": "driving",
+                            "maneuver": {
+                                "bearing_after": 0,
+                                "bearing_before": 270,
+                                "location": [-77.03195, 38.89735],
+                                "modifier": "right",
+                                "type": "turn"
+                            },
+                            "weight": 57.400000000000006,
+                            "duration": 45.1,
+                            "name": "14th Street Northwest",
+                            "distance": 222.8
+                        }, {
+                            "intersections": [{
+                                    "out": 1,
+                                    "in": 2,
+                                    "entry": [true, true, false, false],
+                                    "bearings": [0, 75, 180, 240],
+                                    "location": [-77.03195, 38.899353]
+                                }, {
+                                    "out": 0,
+                                    "in": 2,
+                                    "entry": [true, true, false, false],
+                                    "bearings": [60, 135, 240, 300],
+                                    "location": [-77.030314, 38.899911]
+                                }, {
+                                    "out": 0,
+                                    "in": 2,
+                                    "entry": [true, false, false, false],
+                                    "bearings": [60, 120, 240, 300],
+                                    "location": [-77.030155, 38.899965]
+                                }, {
+                                    "out": 0,
+                                    "in": 1,
+                                    "entry": [true, false, false],
+                                    "bearings": [60, 240, 285],
+                                    "location": [-77.030057, 38.899997]
+                                }],
+                            "geometry": "}ollFthduMGc@Me@Qo@Ka@IYQu@Su@CMGWK]ESAEAEIa@AGKa@",
+                            "mode": "driving",
+                            "maneuver": {
+                                "bearing_after": 74,
+                                "bearing_before": 358,
+                                "location": [-77.03195, 38.899353],
+                                "modifier": "right",
+                                "type": "turn"
+                            },
+                            "weight": 100.80000000000001,
+                            "duration": 68.60000000000001,
+                            "name": "New York Avenue Northwest",
+                            "distance": 219.9
+                        }, {
+                            "intersections": [{
+                                    "out": 2,
+                                    "in": 3,
+                                    "entry": [false, true, true, false],
+                                    "bearings": [0, 60, 180, 240],
+                                    "location": [-77.029623, 38.900142]
+                                }],
+                            "geometry": "{tllFbzcuMH?X?@?",
+                            "mode": "driving",
+                            "maneuver": {
+                                "bearing_after": 180,
+                                "bearing_before": 66,
+                                "location": [-77.029623, 38.900142],
+                                "modifier": "right",
+                                "type": "turn"
+                            },
+                            "weight": 4.5,
+                            "duration": 4.5,
+                            "name": "13th Street Northwest",
+                            "distance": 21.2
+                        }, {
+                            "intersections": [{
+                                    "in": 0,
+                                    "entry": [true],
+                                    "bearings": [0],
+                                    "location": [-77.029623, 38.899951]
+                                }],
+                            "geometry": "usllFbzcuM",
+                            "mode": "driving",
+                            "maneuver": {
+                                "bearing_after": 0,
+                                "bearing_before": 180,
+                                "location": [-77.029623, 38.899951],
+                                "type": "arrive"
+                            },
+                            "weight": 0,
+                            "duration": 0,
+                            "name": "13th Street Northwest",
+                            "distance": 0
+                        }],
+                    "distance": 488.1
+                },
+                {
+                    "summary": "13th Street Northwest, F Street Northwest",
+                    "weight": 173.7,
+                    "duration": 135.4,
+                    "steps": [{
+                            "intersections": [{
+                                    "out": 0,
+                                    "entry": [true],
+                                    "bearings": [180],
+                                    "location": [-77.029623, 38.899951]
+                                }, {
+                                    "lanes": [{
+                                            "valid": false,
+                                            "indications": ["left"]
+                                        }, {
+                                            "valid": false,
+                                            "indications": ["none"]
+                                        }, {
+                                            "valid": true,
+                                            "indications": ["none"]
+                                        }, {
+                                            "valid": false,
+                                            "indications": ["none"]
+                                        }],
+                                    "out": 2,
+                                    "in": 0,
+                                    "entry": [false, true, true, true],
+                                    "bearings": [0, 90, 180, 270],
+                                    "location": [-77.029623, 38.899817]
+                                }, {
+                                    "lanes": [{
+                                            "valid": false,
+                                            "indications": ["left"]
+                                        }, {
+                                            "valid": true,
+                                            "indications": ["none"]
+                                        }, {
+                                            "valid": false,
+                                            "indications": ["none"]
+                                        }, {
+                                            "valid": false,
+                                            "indications": ["none"]
+                                        }],
+                                    "out": 2,
+                                    "in": 0,
+                                    "entry": [false, true, true, true],
+                                    "bearings": [0, 90, 180, 270],
+                                    "location": [-77.029618, 38.898313]
+                                }],
+                            "geometry": "usllFbzcuMX?T@F?`C?v@?|@AV?N?dA@rAAV?",
+                            "mode": "driving",
+                            "maneuver": {
+                                "bearing_after": 180,
+                                "bearing_before": 0,
+                                "location": [-77.029623, 38.899951],
+                                "type": "depart"
+                            },
+                            "weight": 92.9,
+                            "duration": 64.6,
+                            "name": "13th Street Northwest",
+                            "distance": 290.6
+                        }, {
+                            "intersections": [{
+                                    "lanes": [{
+                                            "valid": true,
+                                            "indications": ["left"]
+                                        }, {
+                                            "valid": false,
+                                            "indications": ["none"]
+                                        }, {
+                                            "valid": false,
+                                            "indications": ["none"]
+                                        }],
+                                    "out": 1,
+                                    "in": 0,
+                                    "entry": [false, true, true, true],
+                                    "bearings": [0, 90, 180, 270],
+                                    "location": [-77.029621, 38.897339]
+                                }, {
+                                    "out": 1,
+                                    "in": 3,
+                                    "entry": [true, true, false, false],
+                                    "bearings": [0, 90, 180, 270],
+                                    "location": [-77.028084, 38.897343]
+                                }, {
+                                    "out": 1,
+                                    "in": 3,
+                                    "entry": [true, true, true, false],
+                                    "bearings": [0, 90, 180, 270],
+                                    "location": [-77.027047, 38.897349]
+                                }],
+                            "geometry": "kcllFbzcuM?_@?wF?[?UAsC?c@?a@?C",
+                            "mode": "driving",
+                            "maneuver": {
+                                "bearing_after": 88,
+                                "bearing_before": 178,
+                                "location": [-77.029621, 38.897339],
+                                "modifier": "left",
+                                "type": "turn"
+                            },
+                            "weight": 80.8,
+                            "duration": 70.8,
+                            "name": "F Street Northwest",
+                            "distance": 238.7
+                        }, {
+                            "intersections": [{
+                                    "in": 0,
+                                    "entry": [true],
+                                    "bearings": [270],
+                                    "location": [-77.026864, 38.897349]
+                                }],
+                            "geometry": "mcllFzhcuM",
+                            "mode": "driving",
+                            "maneuver": {
+                                "bearing_after": 0,
+                                "bearing_before": 90,
+                                "location": [-77.026864, 38.897349],
+                                "modifier": "left",
+                                "type": "arrive"
+                            },
+                            "weight": 0,
+                            "duration": 0,
+                            "name": "F Street Northwest",
+                            "distance": 0
+                        }],
+                    "distance": 529.2
+                }],
+            "weight_name": "routability",
+            "weight": 356.7,
+            "duration": 263.8,
+            "distance": 1017.3000000000001
+        }],
+    "waypoints": [{
+            "hint": "jK0qgC_jKoAaAAAAlAAAACQAAAA0AQAAGgAAAJQAAAAkAAAANAEAAIg1AAAJl2j7xIZRAgqXaPsmh1ECAQCvBT1LCWg=",
+            "name": "F Street Northwest",
+            "location": [-77.031671, 38.897348]
+        }, {
+            "hint": "e9AqgCpwCoUfAAAAAwAAAAAAAAAqAAAAHwAAAAMAAAAAAAAAKgAAAIg1AAAJn2j775BRAgGfaPvvkFECAAAPAD1LCWg=",
+            "name": "13th Street Northwest",
+            "location": [-77.029623, 38.899951]
+        }, {
+            "hint": "_aBshDrxB4VgAAAABAAAAAAAAAAcAAAAYAAAAAQAAAAAAAAAHAAAAIg1AADQqWj7xYZRAtGpaPsmh1ECAADvED1LCWg=",
+            "name": "F Street Northwest",
+            "location": [-77.026864, 38.897349]
+        }],
+    "code": "Ok"
+}
+
+
+https://router.project - osrm.org/route/v1/driving/ - 77.03167, 38.897446; - 77.029631, 38.899951; - 77.026863, 38.897446?overview=false&alternatives=true&steps=true&hints=;;

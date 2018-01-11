@@ -1,0 +1,97 @@
+<h1>Sections#test1</h1>
+<div id="mapid"></div>
+<script>
+  
+  var yx = L.latLng;
+
+  var xy = function(x, y) {
+    if (L.Util.isArray(x)) {    // When doing xy([x, y]);
+        return yx(x[1], x[0]);
+    }
+    return yx(y, x);  // When doing xy(x, y);
+  };
+
+  var myx = function(x, y) {
+    if (L.Util.isArray(x)) {    // When doing myx([x, y]);
+        return yx(-x[0], x[1]);
+    }
+    return myx(-x, y);  // When doing myx(x, y);
+  };
+
+  var width  = 130000;
+  var height = 130000;
+  var minx = -16000;
+  var miny = -16000;
+
+  var minZoom = 0;
+  var maxZoom = 10;
+  var img = [
+      width, // original width of image
+      height   // original height of image
+  ];
+  var zoom = zoomLevel();
+  function zoomLevel() {
+      return Math.ceil(
+              Math.log(
+                      Math.max(width, height) /
+                      256
+                      ) / Math.log(2)
+              );
+  };
+
+  var myCRS = L.extend({}, L.CRS.Simple, {
+          transformation: new L.Transformation(1, 0,
+            -1, // works like expected
+            //1, // image travels while zooming
+            0),
+            infinite: false
+        });
+
+  // create the map
+  var map = L.map('mapid', {
+      minZoom: minZoom,
+      maxZoom: maxZoom,
+      crs: myCRS
+  });
+
+  function project(coords) {
+      return map.project(coords, zoom);
+  };
+  function unproject(coords) {
+      return map.unproject(coords, zoom);
+  };
+
+  //sets the max bounds on map
+  var maxSouthWest = unproject([minx, minx]);
+  var maxNorthEast = unproject([minx+height, minx+width]);
+  //map.setMaxBounds(new L.LatLngBounds(maxSouthWest, maxNorthEast));
+
+  map.setView(unproject([minx, minx]), 0);
+
+  var southWest = unproject([minx, minx]);
+  var northEast = unproject([minx+width, minx+height]);
+
+  L.tileLayer('http://localhost:8080/geoserver/gwc/service/tms/1.0.0/topp%3Agfxvector@Simple@png/{z}/{x}/{-y}.png', {
+        noWrap: true,    
+        tms: true,
+        //bounds:  new L.LatLngBounds(southWest, northEast),
+    }).addTo(map);
+    
+  //var map = L.map('mapid').setView([80, 600], 0);
+  //var mapBounds = new L.LatLngBounds(
+  //        map.unproject([-115000, -14000], 10),
+  //        map.unproject([14000, 115000], 10));
+  //map.setMaxBounds(mapBounds);
+  //mymap.fitBounds([45.25,-5.2],[51.1,8.23]);
+
+  //var layer = L.tileLayer('http://localhost:8080/geoserver/gwc/service/tms/1.0.0/topp%3Agfxvector@Simple@png/{z}/{x}/{-y}.png',
+  //        {noWrap: true
+  //        }).addTo(map);
+
+  function onMapClick(e) {
+      alert("You clicked the map at " + e.latlng );
+  }
+
+  map.on('click', onMapClick);
+
+</script>

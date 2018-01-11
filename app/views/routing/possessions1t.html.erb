@@ -1,0 +1,164 @@
+<%= semantic_form_for @obj do |f| %>
+ <%= f.input :date, as: :datetimepicker, datepicker_options: { min_date: "2017-12-01" } %>
+<% end %>
+
+<div id="mapid"></div>
+<script>
+jQuery.datetimepicker.setLocale('fr');
+
+var randomval = {item: Math.random(),
+  toString: function(){return this.item;}
+};
+
+function dateChanged(dp,$input)
+{
+  randomval.item = Math.random();
+  var vect1 = $input.val().split(' ');
+  var vect2 = vect1[0].split('-');
+  var vect3 = vect1[1].split(':');
+  // 'date:20180614;low_h:1000;high_h:5000'
+  var txt = 'date:' + vect2[0] + vect2[1] + vect2[2] + ';low_h:' + (parseInt(vect3[0]) * 3600 + parseInt(vect3[1]) * 60) + ';high_h:' + (parseInt(vect3[0]) * 3600 + parseInt(vect3[1]) * 60 + 1) ;
+  console.log("dateStartChange: " + $input.val() + ' ' + txt );
+ // layerpossession.options.viewparams = txt;
+  layerpossession.wmsParams.viewparams = txt;
+  layerpossession.redraw();
+  $input.val();
+};
+
+jQuery('#test_object_date').datetimepicker({
+  onChangeDateTime: dateChanged
+});
+
+L.Icon.Default.imagePath = '/assets/';
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: 'images/marker-icon-2x.png',
+    iconUrl: 'images/marker-icon.png',
+    shadowUrl: 'images/marker-shadow.png',
+});
+var crs = new L.Proj.CRS("EPSG:2192",
+          "+proj=lcc +lat_1=46.8 +lat_0=46.8 +lon_0=2.337229166666667 +k_0=0.99987742 +x_0=600000 +y_0=2200000 +ellps=intl +towgs84=-87,-98,-121,0,0,0,0 +units=m +no_defs",
+          {
+              //origin: [1712,-2291],
+              resolutions: [2048, 1024, 512, 256, 128, 64, 32, 8, 4, 2, 1, 0.5, 0.25] //  example zoom level resolutions
+          });
+
+var wmsLayer = L.tileLayer.wms("http://localhost:8080/geoserver/Kbase42222/wms", {
+    layers: 'Kbase42222:infra281',
+    crs: crs,
+    format: 'image/png',
+    transparent: true
+});
+
+var layerpossession = L.tileLayer.wms("http://localhost:8080/geoserver/Kbase42222/wms", {
+    layers: 'Kbase42222:restriction_mv_view',
+    viewparams: 'date:20180614;low_h:1000;high_h:5000',
+    crs: crs,
+    format: 'image/png',
+    transparent: true,
+    test: randomval
+    
+});
+
+var map = L.map('mapid', {
+      crs: crs,
+      maxBounds: new L.LatLngBounds([[27.20, -3.57],[26.25, -2.25]]),
+      minZoom: 3,
+      maxZoom: 13,
+      layers: [wmsLayer, layerpossession]
+    });
+    
+map.setView(L.latLng(26.70625, -2.87625), 3, crs);
+
+var possMap = {
+  "Travaux": layerpossession
+};
+
+var backgroundMap = {
+  "Fond": wmsLayer
+};
+
+L.control.layers(backgroundMap, possMap).addTo(map);
+
+var rootUrl = 'http://localhost:8080/geoserver/ows';
+
+var defaultParameters = {
+    service: 'WFS',
+    version: '1.0.0',
+    request: 'GetFeature',
+    typeName: 'Kbase42222:restriction_mv_view',
+    maxFeatures: 20,
+    outputFormat: 'text/javascript'
+   , format_options: 'callback: getJson',
+    srsName:'EPSG:2192'
+
+};
+
+var parameters = L.Util.extend(defaultParameters);
+console.log(rootUrl + L.Util.getParamString(parameters));
+$.ajax({
+    jsonp : false,
+    url: rootUrl + L.Util.getParamString(parameters),
+    dataType: 'jsonp',
+   jsonpCallback: 'getJson',
+    success: handleJson
+});
+
+var group = new L.featureGroup().addTo(map);
+var geojsonlayer;
+function handleJson(data) {
+//    console.log(data);
+    geojsonlayer=L.geoJson(data, {
+        onEachFeature: function (feature, my_Layer) {
+				my_Layer.bindPopup("str.1: "+feature.properties.str1+"<br />cat: "+feature.properties.cat);
+					  },
+        pointToLayer: function (feature, latlng) {
+            //return L.circleMarker(latlng, geojsonMarkerOptions);
+			return L.circleMarker(latlng//, geojsonMarkerOptions
+			);
+            //return L.marker(latlng);
+        }
+    })
+    //geojsonlayer.addTo(group);
+    //map.fitBounds(group.getBounds());
+}
+
+
+function getJson(data) {
+console.log("callback function fired");
+}
+
+/*
+var possessionMaps = {
+  "datetime": "2018-01-15  15:00"
+  };
+  
+map.createPane('possession');
+map.getPane('possession').style.zIndex = 650;
+
+
+
+
+
+ 
+ http://localhost:8080/geoserver/Kbase42222/wms?service=WMS&version=1.1.0&request=GetMap&layers=Kbase42222:restriction_mv_view&viewparams=date:20180614;low_h:0;high_h:5000&styles=&bbox=-15036.0,-112222.0,110213.0,13121.0&width=767&height=768&srs=EPSG:2192&format=application/openlayers#toggle
+ 
+ http://localhost:8080/geoserver/Kbase42222/wms?service=WMS&request=GetMap&layers=Kbase42222%3Arestriction_mv_view&styles=&format=image%2Fpng&transparent=true&version=1.1.1&viewparams=date%3A20180614%3Blow_h%3A1000%3Bhigh_h%3A5000&height=256&width=256&srs=EPSG%3A2192&bbox=65536.00190688123,-65535.99761115899,131072.00188053487,0.002364671789109707
+ 
+ 
+ http://localhost:8080/geoserver/Kbase42222/wms?service=WMS&request=GetMap&layers=Kbase42222%3Arestriction_mv_view&styles=&format=image%2Fpng&transparent=true&version=1.1.1&viewparams=date%3A20180614%3Blow_h%3A1000%3Bhigh_h%3A5000&height=256&width=256&srs=EPSG%3A2192
+ &bbox=-65535.99801004189,0.0023827040567994118,0.0019623865373432636,65536.0023591523
+ var plan = control.getPlan();
+ 
+ plan.addEventListener('waypointgeocoded', function(wp) {
+ alert("You reversegeocoded at ");
+ });
+ 
+ function onMapClick(e) {
+ var xy = crs.project(e.latlng),
+ alert("You clicked the map at " + e.latlng + "x: " + xy );
+ }
+ 
+ map.on('click', onMapClick);
+ */
+
+</script>
